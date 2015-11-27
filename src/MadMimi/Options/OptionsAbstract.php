@@ -17,6 +17,10 @@ abstract class OptionsAbstract
 {
     /**
      * OptionsAbstract constructor.
+     *
+     * You can pass in the properties here directly - if you know what they are exactly.  It might be easier though
+     * to use the setters on the actual options classes
+     *
      * @param array $options
      * @throws InvalidOptionException
      */
@@ -42,5 +46,19 @@ abstract class OptionsAbstract
             return $holder;
         }, []);
         return $properties;
+    }
+
+    /**
+     * Helper function to set the string value of the email for MadMimi API
+     *
+     * @param $key string the key of the email
+     * @param $email string the email
+     * @param $name string the potential name
+     * @return $this
+     */
+    protected function setEmailAddress($key, $email, $name = '')
+    {
+        $this->$key = trim("{$name} <{$email}>");
+        return $this;
     }
 }

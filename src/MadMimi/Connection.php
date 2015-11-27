@@ -6,8 +6,10 @@
  */
 
 namespace MadMimi;
+use MadMimi\Exception\AuthenticationException;
+use MadMimi\Exception\NoPromotionException;
 use MadMimi\Exception\TransferErrorException;
-use MadMimi\Options\Mailer as MailerOptions;
+use MadMimi\Options\Transactional as TransactionalOptions;
 use MadMimi\Options\OptionsAbstract;
 
 /**
@@ -20,6 +22,11 @@ class Connection
      * @var string the mad mimi api
      */
     const API_URL = 'https://api.madmimi.com';
+
+    /**
+     * @var string the api authentication has failed
+     */
+    const API_AUTHENTICATION_FAILED = "Authentication failed";
 
     /**
      * @var string this is a post method
@@ -53,13 +60,24 @@ class Connection
     }
 
     /**
-     * @param MailerOptions $mailerOptions
+     * @param TransactionalOptions $transactionalOptions
      */
-    public function mailer(MailerOptions $mailerOptions)
+    public function transactional(TransactionalOptions $transactionalOptions)
     {
-        $this->send('/mailer', self::REQUEST_TYPE_POST, $mailerOptions);
+        $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
     }
 
+    /**
+     * Sends the request
+     *
+     * @param $endPoint string the endpoint in url format
+     * @param $requestType string either of the two REQUEST_TYPE constants
+     * @param OptionsAbstract $options optiosn for this send
+     * @throws AuthenticationException
+     * @throws NoPromotionException
+     * @throws TransferErrorException
+     * @return string the unique ID that was sent back
+     */
     protected function send($endPoint, $requestType, OptionsAbstract $options)
     {
         $query = http_build_query(array_merge([
@@ -72,23 +90,72 @@ class Connection
             $url .= "?{$query}";
         }
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, 'Accept: application/json');
+        $curlHandle = curl_init();
+        curl_setopt($curlHandle, CURLOPT_URL, $url);
+        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curlHandle, CURLOPT_HEADER, 'Accept: application/json');
         if ($requestType == self::REQUEST_TYPE_POST) {
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+            curl_setopt($curlHandle, CURLOPT_POST, true);
+            curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $query);
         }
 
-        $result = curl_exec($ch);
+        $result = curl_exec($curlHandle);
+
+        $this->handleSendError($curlHandle, $result);
+
+        if (($httpCode = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) !== 200) {
+            throw new TransferErrorException("HTTP Error Code of {$httpCode} was generated and not caught."); // really shouldn't ever happen if I do my job right
+        }
+
+        return $result; // the unique transaction ID
+    }
+
+    /**
+     * This handles all the errors that this particular connection send could generate
+     *
+     * @param $curlHandle resource Curl Handle
+     * @param $result string the result of this request
+     * @throws AuthenticationException
+     * @throws NoPromotionException
+     * @throws TransferErrorException
+     */
+    protected function handleSendError($curlHandle, $result)
+    {
+        /**
+         * Curl error
+         */
         if ($result === false) {
-            throw new TransferErrorException(curl_error($ch), curl_errno($ch));
-        }
-        if (curl_getinfo($ch, CURLINFO_HTTP_CODE) == 404) {
-            throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found.");
+            throw new TransferErrorException(curl_error($curlHandle), curl_errno($curlHandle));
         }
 
+        /**
+         * Authentication failure
+         */
+        if ($result == self::API_AUTHENTICATION_FAILED) {
+            throw new AuthenticationException("Authentication failed.");
+        }
+
+        /**
+         * HTTP Error Codes
+         */
+        switch (curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
+            case 404:
+                throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found.");
+                break;
+
+            case 500:
+                if (curl_getinfo($curlHandle, CURLINFO_CONTENT_TYPE) == 'text/html; charset=utf-8') {
+                    throw new TransferErrorException("An error 500 was generated and an HTML page was returned.");
+                }
+                else {
+                    throw new TransferErrorException("500 error returned.");
+                }
+                break;
+
+            case 409:
+                throw new NoPromotionException($result, 409);
+                break;
+        }
 
     }
 }
