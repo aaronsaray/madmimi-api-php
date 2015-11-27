@@ -9,6 +9,8 @@ namespace MadMimi\Options;
 
 /**
  * Class Transactional
+ *
+ * @see https://madmimi.com/developer/mailer/transactional
  * @package MadMimi\Options
  */
 class Transactional extends OptionsAbstract

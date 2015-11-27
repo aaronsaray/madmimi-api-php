@@ -105,7 +105,7 @@ class Connection
         $this->handleSendError($curlHandle, $result);
 
         if (($httpCode = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) !== 200) {
-            throw new TransferErrorException("HTTP Error Code of {$httpCode} was generated and not caught."); // really shouldn't ever happen if I do my job right
+            throw new TransferErrorException("HTTP Error Code of {$httpCode} was generated and not caught: " . $result); // really shouldn't ever happen if I do my job right
         }
 
         return $result; // the unique transaction ID
