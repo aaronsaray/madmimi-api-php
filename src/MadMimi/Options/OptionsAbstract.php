@@ -61,4 +61,19 @@ abstract class OptionsAbstract
         $this->$key = $name ? trim("{$name} <{$email}>") : $email;
         return $this;
     }
+
+    /**
+     * Helper function to translate boolean values into what the API uses
+     *
+     * @param $key string the key of the option
+     * @param $bool boolean true or false for this option
+     * @return $this
+     */
+    protected function setTranslatedBooleanValue($key, $bool)
+    {
+        if (!is_bool($bool)) throw new \DomainException('Parameter of ' . debug_backtrace()[1]['function'] . ' must be a boolean');
+
+        $this->$key = $bool ? 'yes' : 'no';
+        return $this;
+    }
 }

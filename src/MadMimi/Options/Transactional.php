@@ -52,9 +52,39 @@ class Transactional extends OptionsAbstract
     protected $sender;
 
     /**
+     * @var string raw HTML to send with this transactional email
+     */
+    protected $raw_html;
+
+    /**
+     * @var string raw plain text to send with this email
+     */
+    protected $raw_plain_text;
+
+    /**
      * @var string the YAML for replacing placeholders
      */
     protected $body;
+
+    /**
+     * @var string a boolean representation
+     */
+    protected $check_suppressed;
+
+    /**
+     * @var string a boolean representation
+     */
+    protected $track_links;
+
+    /**
+     * @var string a boolean representation
+     */
+    protected $hidden;
+
+    /**
+     * @var string a boolean representation
+     */
+    protected $skip_placeholders;
 
     /**
      * @param string $promotionName
@@ -153,5 +183,73 @@ class Transactional extends OptionsAbstract
     {
         $this->body = Yaml::dump($placeholders);
         return $this;
+    }
+
+    /**
+     * Set plain HTML instead of using a prebuilt promotion value
+     *
+     * @param $html string the raw html to send
+     * @return $this
+     */
+    public function setHTML($html)
+    {
+        $this->raw_html = $html;
+        return $this;
+    }
+
+    /**
+     * Set plain text content of promotion
+     *
+     * @param $text string the raw plain text to send
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->raw_plain_text = $text;
+        return $this;
+    }
+
+    /**
+     * Check suppressed
+     *
+     * @param bool|true $bool
+     * @return $this
+     */
+    public function setCheckSuppressed($bool = true)
+    {
+        return $this->setTranslatedBooleanValue('check_suppressed', $bool);
+    }
+
+    /**
+     * Track links
+     *
+     * @param bool|true $bool
+     * @return $this
+     */
+    public function setTrackLinks($bool = true)
+    {
+        return $this->setTranslatedBooleanValue('track_links', $bool);
+    }
+
+    /**
+     * Hides the promotion from the web interface
+     *
+     * @param bool|true $bool
+     * @return $this
+     */
+    public function setHidden($bool = true)
+    {
+        return $this->setTranslatedBooleanValue('hidden', $bool);
+    }
+
+    /**
+     * sets whether to ignore the {placeholders}
+     *
+     * @param bool|true $bool
+     * @return $this
+     */
+    public function setSkipPlaceholders($bool = true)
+    {
+        return $this->setTranslatedBooleanValue('skip_placeholders', $bool);
     }
 }

@@ -108,4 +108,70 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setPlaceholderValues(['test'=>'first', 'test2'=>'second']));
         $this->assertAttributeEquals("test: first\ntest2: second\n", 'body', $options);
     }
+
+    public function testSetHTML()
+    {
+        $options = new Transactional();
+        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setHTML('<blink>Yeah</blink>'));
+        $this->assertAttributeEquals('<blink>Yeah</blink>', 'raw_html', $options);
+    }
+
+    public function testSetText()
+    {
+        $options = new Transactional();
+        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setText('I am an email!'));
+        $this->assertAttributeEquals('I am an email!', 'raw_plain_text', $options);
+    }
+
+    /**
+     * This method also tests the abstract method for validation of booleans
+     */
+    public function testSetCheckSuppressed()
+    {
+        $options = new Transactional();
+        try {
+            $options->setCheckSuppressed(1);
+            $this->fail('Boolean check failed');
+        }
+        catch (\DomainException $de) {
+            $this->assertEquals('Parameter of setCheckSuppressed must be a boolean', $de->getMessage());
+        }
+        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setCheckSuppressed());
+        $this->assertAttributeEquals('yes', 'check_suppressed', $options);
+        $options->setCheckSuppressed(false);
+        $this->assertAttributeEquals('no', 'check_suppressed', $options);
+        $options->setCheckSuppressed(true);
+        $this->assertAttributeEquals('yes', 'check_suppressed', $options);
+    }
+
+    /**
+     * @depends testSetCheckSuppressed
+     */
+    public function testSetTrackLinks()
+    {
+        $options = new Transactional();
+        $options->setTrackLinks(false);
+        $this->assertAttributeEquals('no', 'track_links', $options);
+    }
+
+    /**
+     * @depends testSetCheckSuppressed
+     */
+    public function testSetHidden()
+    {
+        $options = new Transactional();
+        $options->setHidden(false);
+        $this->assertAttributeEquals('no', 'hidden', $options);
+    }
+
+    /**
+     * @depends testSetCheckSuppressed
+     */
+    public function testSetSkipPlaceholders()
+    {
+        $options = new Transactional();
+        $options->setSkipPlaceholders(false);
+        $this->assertAttributeEquals('no', 'skip_placeholders', $options);
+    }
+
 }
