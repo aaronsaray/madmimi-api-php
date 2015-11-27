@@ -28,7 +28,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
             return func_get_args();
         }));
 
-        $params = $connection->transactional(new Transactional());
+        $params = $connection->sendTransactional(new Transactional());
         $this->assertEquals('/mailer', $params[0]);
         $this->assertEquals('post', $params[1]);
         $this->assertInstanceOf('MadMimi\Options\Transactional', $params[2]);

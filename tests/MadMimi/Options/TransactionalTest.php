@@ -95,13 +95,6 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('sender@email.com', 'sender', $options);
     }
 
-    public function testSetBodyYaml()
-    {
-        $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setBodyYaml('some: yaml'));
-        $this->assertAttributeEquals('some: yaml', 'body', $options);
-    }
-
     public function testSetPlaceholders()
     {
         $options = new Transactional();
@@ -172,13 +165,6 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         $options = new Transactional();
         $options->setSkipPlaceholders(false);
         $this->assertAttributeEquals('no', 'skip_placeholders', $options);
-    }
-
-    public function testSetListNames()
-    {
-        $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setListNames('list-name'));
-        $this->assertAttributeEquals('list-name', 'list_names', $options);
     }
 
     public function testAddRecipientToLists()

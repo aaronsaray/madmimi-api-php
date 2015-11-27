@@ -167,18 +167,6 @@ class Transactional extends OptionsAbstract
     }
 
     /**
-     * This sets the body yaml for {placeholders} directly.  You probably want to use setPlaceholderValue() instead
-     *
-     * @param $yaml string the yaml for the replacements
-     * @return $this
-     */
-    public function setBodyYaml($yaml)
-    {
-        $this->body = $yaml;
-        return $this;
-    }
-
-    /**
      * Use this to set placeholders - generates a YAML and will overwrite your old values
      *
      * @param array $placeholders by key => value of placeholder => replacement
@@ -256,17 +244,6 @@ class Transactional extends OptionsAbstract
     public function setSkipPlaceholders($bool = true)
     {
         return $this->setTranslatedBooleanValue('skip_placeholders', $bool);
-    }
-
-    /**
-     * This sets the list names - you probably want to use self::addRecipientToLists() instead though.
-     * @param $csv string
-     * @return $this
-     */
-    public function setListNames($csv)
-    {
-        $this->list_names = $csv;
-        return $this;
     }
 
     /**
