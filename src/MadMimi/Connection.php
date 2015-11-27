@@ -61,10 +61,11 @@ class Connection
 
     /**
      * @param TransactionalOptions $transactionalOptions
+     * @return string the transaction ID
      */
     public function transactional(TransactionalOptions $transactionalOptions)
     {
-        $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
+        return $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
     }
 
     /**
