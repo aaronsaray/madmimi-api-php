@@ -174,4 +174,17 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('no', 'skip_placeholders', $options);
     }
 
+    public function testSetListNames()
+    {
+        $options = new Transactional();
+        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setListNames('list-name'));
+        $this->assertAttributeEquals('list-name', 'list_names', $options);
+    }
+
+    public function testAddRecipientToLists()
+    {
+        $options = new Transactional();
+        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->addRecipientToLists(['first list', "Aaron's List", '"fake" list']));
+        $this->assertAttributeEquals('"first list","Aaron\'s List","""fake"" list"', 'list_names', $options);
+    }
 }

@@ -87,6 +87,11 @@ class Transactional extends OptionsAbstract
     protected $skip_placeholders;
 
     /**
+     * @var string a csv list of mailing lists to add to
+     */
+    protected $list_names;
+
+    /**
      * @param string $promotionName
      * @return $this
      */
@@ -251,5 +256,33 @@ class Transactional extends OptionsAbstract
     public function setSkipPlaceholders($bool = true)
     {
         return $this->setTranslatedBooleanValue('skip_placeholders', $bool);
+    }
+
+    /**
+     * This sets the list names - you probably want to use self::addRecipientToLists() instead though.
+     * @param $csv string
+     * @return $this
+     */
+    public function setListNames($csv)
+    {
+        $this->list_names = $csv;
+        return $this;
+    }
+
+    /**
+     * This sets the lists via their name that you want to add your recipient to
+     *
+     * This will take care of formatting it properly for the API
+     * @param array $lists
+     * @return $this
+     */
+    public function addRecipientToLists(array $lists)
+    {
+        $handle = fopen('php://temp', 'r+');
+        fputcsv($handle, $lists);
+        rewind($handle);
+        $this->list_names = trim(stream_get_contents($handle));
+        fclose($handle);
+        return $this;
     }
 }

@@ -12,6 +12,8 @@ use MadMimi\Exception\NoPromotionException;
 use MadMimi\Exception\TransferErrorException;
 use MadMimi\Options\Transactional as TransactionalOptions;
 use MadMimi\Options\OptionsAbstract;
+use Monolog\Handler\StreamHandler;
+use Monolog\Logger;
 
 /**
  * Class Connection
@@ -19,6 +21,11 @@ use MadMimi\Options\OptionsAbstract;
  */
 class Connection
 {
+    /**
+     * @var boolean use this to indicate that you'd like debug mode on
+     */
+    const ENABLE_DEBUG = true;
+
     /**
      * @var string the mad mimi api
      */
@@ -50,14 +57,30 @@ class Connection
     protected $apiKey;
 
     /**
+     * @var bool whether debugging logging should be on or not
+     */
+    protected $debugMode = false;
+
+    /**
+     * @var Logger
+     */
+    private $log;
+
+    /**
      * Connection constructor - sets up the potential for hte connection
      * @param $username string The email that is used to connect
      * @param $apiKey string the API key that is used
+     * @param $debugMode bool whether to turn on debugging
      */
-    public function __construct($username, $apiKey)
+    public function __construct($username, $apiKey, $debugMode = false)
     {
         $this->username = $username;
         $this->apiKey = $apiKey;
+
+        $this->log = new Logger(__CLASS__);
+        if ($this->debugMode = $debugMode) {
+            $this->log->pushHandler(new StreamHandler('php://stdout'));
+        }
     }
 
     /**
@@ -66,7 +89,9 @@ class Connection
      */
     public function transactional(TransactionalOptions $transactionalOptions)
     {
-        return $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
+        $id = $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
+        $this->debug('Mail sent with ID ' . $id);
+        return $id;
     }
 
     /**
@@ -82,15 +107,19 @@ class Connection
      */
     protected function send($endPoint, $requestType, OptionsAbstract $options)
     {
+        $this->debug("About to send to {$endPoint} via {$requestType} with options of " . get_class($options));
+
         $query = http_build_query(array_merge([
             'username'  =>  $this->username,
             'api_key'   =>  $this->apiKey
         ], $options->getPopulated()));
+        $this->debug("Query: {$query}");
 
         $url = self::API_URL . $endPoint;
         if ($requestType == self::REQUEST_TYPE_GET) {
             $url .= "?{$query}";
         }
+        $this->debug("Url: {$url}");
 
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
@@ -102,6 +131,7 @@ class Connection
         }
 
         $result = curl_exec($curlHandle);
+        $this->debug("Curl info after call: " . print_r(curl_getinfo($curlHandle), true));
 
         $this->handleSendError($curlHandle, $result);
 
@@ -166,6 +196,15 @@ class Connection
                 throw new NoPromotionException($result, 409);
                 break;
         }
+    }
 
+    /**
+     * This is a shortcut to debugging with the log - tries to limit the calculations done if debug mode is false
+     *
+     * @param $string string the debug string
+     */
+    protected function debug($string)
+    {
+        if ($this->debugMode) $this->log->debug($string);
     }
 }
