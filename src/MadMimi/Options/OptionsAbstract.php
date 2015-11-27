@@ -58,7 +58,7 @@ abstract class OptionsAbstract
      */
     protected function setEmailAddress($key, $email, $name = '')
     {
-        $this->$key = trim("{$name} <{$email}>");
+        $this->$key = $name ? trim("{$name} <{$email}>") : $email;
         return $this;
     }
 }

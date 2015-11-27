@@ -9,10 +9,10 @@ namespace MadMimi\Tests;
 use MadMimi\Options\Transactional;
 
 /**
- * Class Connection
+ * Class ConnectionTest
  * @package MadMimi\Tests
  */
-class Connection extends \PHPUnit_Framework_TestCase
+class ConnectionTest extends \PHPUnit_Framework_TestCase
 {
     public function testConstructorSetsVariables()
     {

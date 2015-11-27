@@ -6,6 +6,7 @@
  */
 
 namespace MadMimi\Options;
+use Symfony\Component\Yaml\Yaml;
 
 /**
  * Class Transactional
@@ -49,6 +50,11 @@ class Transactional extends OptionsAbstract
      * @var string the sender email in format of "name <email>" (used for Mail headers)
      */
     protected $sender;
+
+    /**
+     * @var string the YAML for replacing placeholders
+     */
+    protected $body;
 
     /**
      * @param string $promotionName
@@ -125,4 +131,27 @@ class Transactional extends OptionsAbstract
         return $this->setEmailAddress('sender', $email, $name);
     }
 
+    /**
+     * This sets the body yaml for {placeholders} directly.  You probably want to use setPlaceholderValue() instead
+     *
+     * @param $yaml string the yaml for the replacements
+     * @return $this
+     */
+    public function setBodyYaml($yaml)
+    {
+        $this->body = $yaml;
+        return $this;
+    }
+
+    /**
+     * Use this to set placeholders - generates a YAML and will overwrite your old values
+     *
+     * @param array $placeholders by key => value of placeholder => replacement
+     * @return $this
+     */
+    public function setPlaceholderValues(array $placeholders)
+    {
+        $this->body = Yaml::dump($placeholders);
+        return $this;
+    }
 }
