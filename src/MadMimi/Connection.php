@@ -165,7 +165,7 @@ class Connection
          * Authentication failure
          */
         if ($result == self::API_AUTHENTICATION_FAILED) {
-            throw new AuthenticationException("Authentication failed.");
+            throw new AuthenticationException("Authentication failed: " . $result);
         }
 
         /**
