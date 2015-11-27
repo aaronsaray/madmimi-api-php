@@ -6,6 +6,9 @@
  */
 
 namespace MadMimi;
+use MadMimi\Exception\TransferErrorException;
+use MadMimi\Options\Mailer as MailerOptions;
+use MadMimi\Options\OptionsAbstract;
 
 /**
  * Class Connection
@@ -13,6 +16,21 @@ namespace MadMimi;
  */
 class Connection
 {
+    /**
+     * @var string the mad mimi api
+     */
+    const API_URL = 'https://api.madmimi.com';
+
+    /**
+     * @var string this is a post method
+     */
+    const REQUEST_TYPE_POST = 'post';
+
+    /**
+     * @var string this is a get method
+     */
+    const REQUEST_TYPE_GET = 'get';
+
     /**
      * @var string the username (your email) used for the connection
      */
@@ -32,5 +50,45 @@ class Connection
     {
         $this->username = $username;
         $this->apiKey = $apiKey;
+    }
+
+    /**
+     * @param MailerOptions $mailerOptions
+     */
+    public function mailer(MailerOptions $mailerOptions)
+    {
+        $this->send('/mailer', self::REQUEST_TYPE_POST, $mailerOptions);
+    }
+
+    protected function send($endPoint, $requestType, OptionsAbstract $options)
+    {
+        $query = http_build_query(array_merge([
+            'username'  =>  $this->username,
+            'api_key'   =>  $this->apiKey
+        ], $options->getPopulated()));
+
+        $url = self::API_URL . $endPoint;
+        if ($requestType == self::REQUEST_TYPE_GET) {
+            $url .= "?{$query}";
+        }
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, 'Accept: application/json');
+        if ($requestType == self::REQUEST_TYPE_POST) {
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $query);
+        }
+
+        $result = curl_exec($ch);
+        if ($result === false) {
+            throw new TransferErrorException(curl_error($ch), curl_errno($ch));
+        }
+        if (curl_getinfo($ch, CURLINFO_HTTP_CODE) == 404) {
+            throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found.");
+        }
+
+
     }
 }
