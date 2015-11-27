@@ -87,7 +87,7 @@ class Connection
      * @param TransactionalOptions $transactionalOptions
      * @return string the transaction ID
      */
-    public function transactional(TransactionalOptions $transactionalOptions)
+    public function sendTransactional(TransactionalOptions $transactionalOptions)
     {
         $id = $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
         $this->debug('Mail sent with ID ' . $id);
