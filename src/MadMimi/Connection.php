@@ -7,6 +7,7 @@
 
 namespace MadMimi;
 use MadMimi\Exception\AuthenticationException;
+use MadMimi\Exception\MissingPlaceholdersException;
 use MadMimi\Exception\NoPromotionException;
 use MadMimi\Exception\TransferErrorException;
 use MadMimi\Options\Transactional as TransactionalOptions;
@@ -117,6 +118,7 @@ class Connection
      * @param $curlHandle resource Curl Handle
      * @param $result string the result of this request
      * @throws AuthenticationException
+     * @throws MissingPlaceholdersException
      * @throws NoPromotionException
      * @throws TransferErrorException
      */
@@ -141,15 +143,22 @@ class Connection
          */
         switch (curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
             case 404:
-                throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found.");
+                throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found.", 404);
+                break;
+
+            case 403:
+                if (stripos($result, 'Your email has {placeholders} in it') === 0) {
+                    throw new MissingPlaceholdersException($result, 403);
+                }
                 break;
 
             case 500:
+                // @todo figure out if this actually works
                 if (curl_getinfo($curlHandle, CURLINFO_CONTENT_TYPE) == 'text/html; charset=utf-8') {
-                    throw new TransferErrorException("An error 500 was generated and an HTML page was returned.");
+                    throw new TransferErrorException("An error 500 was generated and an HTML page was returned.", 500);
                 }
                 else {
-                    throw new TransferErrorException("500 error returned.");
+                    throw new TransferErrorException("500 error returned.", 500);
                 }
                 break;
 
