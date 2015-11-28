@@ -16,6 +16,16 @@ use MadMimi\Exception\InvalidOptionException;
 abstract class OptionsAbstract
 {
     /**
+     * @var string this is a post method
+     */
+    const REQUEST_TYPE_POST = 'post';
+
+    /**
+     * @var string this is a get method
+     */
+    const REQUEST_TYPE_GET = 'get';
+
+    /**
      * OptionsAbstract constructor.
      *
      * You can pass in the properties here directly - if you know what they are exactly.  It might be easier though
@@ -93,4 +103,14 @@ abstract class OptionsAbstract
         fclose($handle);
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    abstract public function getEndPoint();
+
+    /**
+     * @return string
+     */
+    abstract public function getRequestType();
 }

@@ -9,7 +9,6 @@ be reused.  The connection object also allows you to specify debug mode.
 ```php
 <?php
 use MadMimi\Connection;
-use MadMimi\Options\Transactional;
 
 $connection = new Connection('your@email.com', 'your-api-key');
 ```
@@ -30,7 +29,7 @@ it will print to the HTML output if running through a webserver.
 
 ## Methods Available
 
-- [Transactional Mail](transactional.md) Send a transactional email using `Connection::transactional()`
+- `Connection::send($options)` Send an email using one of the options.
 
 ## Exceptions and Errors
 

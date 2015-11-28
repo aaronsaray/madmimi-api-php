@@ -92,6 +92,22 @@ class Transactional extends OptionsAbstract
     protected $list_names;
 
     /**
+     * @return string the end point
+     */
+    public function getEndPoint()
+    {
+        return '/mailer';
+    }
+
+    /**
+     * @return string the request type
+     */
+    public function getRequestType()
+    {
+        return self::REQUEST_TYPE_POST;
+    }
+
+    /**
      * @param string $promotionName
      * @return $this
      */

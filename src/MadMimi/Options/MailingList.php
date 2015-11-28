@@ -72,6 +72,22 @@ class MailingList extends OptionsAbstract
     protected $merge_data;
 
     /**
+     * @return string the end point
+     */
+    public function getEndPoint()
+    {
+        return '/mailer/to_list';
+    }
+
+    /**
+     * @return string the request type
+     */
+    public function getRequestType()
+    {
+        return self::REQUEST_TYPE_POST;
+    }
+
+    /**
      * @param string $promotionName
      * @return $this
      */

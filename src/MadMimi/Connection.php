@@ -10,7 +10,6 @@ use MadMimi\Exception\AuthenticationException;
 use MadMimi\Exception\MissingPlaceholdersException;
 use MadMimi\Exception\NoPromotionException;
 use MadMimi\Exception\TransferErrorException;
-use MadMimi\Options\Transactional as TransactionalOptions;
 use MadMimi\Options\OptionsAbstract;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
@@ -35,16 +34,6 @@ class Connection
      * @var string the api authentication has failed
      */
     const API_AUTHENTICATION_FAILED = "Authentication failed";
-
-    /**
-     * @var string this is a post method
-     */
-    const REQUEST_TYPE_POST = 'post';
-
-    /**
-     * @var string this is a get method
-     */
-    const REQUEST_TYPE_GET = 'get';
 
     /**
      * @var string the username (your email) used for the connection
@@ -84,29 +73,18 @@ class Connection
     }
 
     /**
-     * @param TransactionalOptions $transactionalOptions
-     * @return string the transaction ID
-     */
-    public function sendTransactional(TransactionalOptions $transactionalOptions)
-    {
-        $id = $this->send('/mailer', self::REQUEST_TYPE_POST, $transactionalOptions);
-        $this->debug('Mail sent with ID ' . $id);
-        return $id;
-    }
-
-    /**
      * Sends the request
      *
-     * @param $endPoint string the endpoint in url format
-     * @param $requestType string either of the two REQUEST_TYPE constants
      * @param OptionsAbstract $options optiosn for this send
      * @throws AuthenticationException
      * @throws NoPromotionException
      * @throws TransferErrorException
      * @return string the unique ID that was sent back
      */
-    protected function send($endPoint, $requestType, OptionsAbstract $options)
+    public function send(OptionsAbstract $options)
     {
+        $endPoint = $options->getEndPoint();
+        $requestType = $options->getRequestType();
         $this->debug("About to send to {$endPoint} via {$requestType} with options of " . get_class($options));
 
         $query = http_build_query(array_merge([
@@ -116,7 +94,7 @@ class Connection
         $this->debug("Query: {$query}");
 
         $url = self::API_URL . $endPoint;
-        if ($requestType == self::REQUEST_TYPE_GET) {
+        if ($requestType == OptionsAbstract::REQUEST_TYPE_GET) {
             $url .= "?{$query}";
         }
         $this->debug("Url: {$url}");
@@ -125,7 +103,7 @@ class Connection
         curl_setopt($curlHandle, CURLOPT_URL, $url);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curlHandle, CURLOPT_HEADER, 'Accept: application/json');
-        if ($requestType == self::REQUEST_TYPE_POST) {
+        if ($requestType == OptionsAbstract::REQUEST_TYPE_POST) {
             curl_setopt($curlHandle, CURLOPT_POST, true);
             curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $query);
         }
@@ -139,7 +117,8 @@ class Connection
             throw new TransferErrorException("HTTP Error Code of {$httpCode} was generated and not caught: " . $result); // really shouldn't ever happen if I do my job right
         }
 
-        return $result; // the unique transaction ID
+        $this->debug('Mail sent with ID ' . $result);
+        return $result; // ID
     }
 
     /**
