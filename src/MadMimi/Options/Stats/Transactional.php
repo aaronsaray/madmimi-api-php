@@ -6,7 +6,6 @@
  */
 
 namespace MadMimi\Options\Stats;
-use MadMimi\Options\OptionsAbstract;
 
 /**
  * Class Transactional
@@ -14,7 +13,7 @@ use MadMimi\Options\OptionsAbstract;
  * @see https://madmimi.com/developer/mailer/status
  * @package MadMimi\Options\Stats
  */
-class Transactional extends OptionsAbstract
+class Transactional extends StatsOptionsAbstract
 {
     /**
      * @var string the transaction ID
@@ -27,14 +26,6 @@ class Transactional extends OptionsAbstract
     public function getEndPoint()
     {
         return "/mailers/status/{$this->transactionId}";
-    }
-
-    /**
-     * @return string the request type
-     */
-    public function getRequestType()
-    {
-        return self::REQUEST_TYPE_GET;
     }
 
     /**

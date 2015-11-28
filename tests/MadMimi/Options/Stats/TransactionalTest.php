@@ -29,11 +29,4 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         $options->setTransactionId('something-here');
         $this->assertEquals('/mailers/status/something-here', $options->getEndPoint());
     }
-
-    public function testRequestType()
-    {
-        $options = new Transactional();
-        $this->assertEquals('get', $options->getRequestType());
-    }
-
 }

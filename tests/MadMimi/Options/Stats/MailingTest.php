@@ -14,6 +14,9 @@ use MadMimi\Options\Stats\Mailing;
  */
 class MailingTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * This also tests the PromotionMailingBaseTrait
+     */
     public function testSetPromotionId()
     {
         $options = new Mailing();
@@ -21,11 +24,23 @@ class MailingTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('promo', 'promotionId', $options);
     }
 
+    /**
+     * This also tests the PromotionMailingBaseTrait
+     */
     public function testSetMailingId()
     {
         $options = new Mailing();
         $this->assertInstanceOf('\MadMimi\Options\Stats\Mailing', $options->setMailingId('mailing'));
         $this->assertAttributeEquals('mailing', 'mailingId', $options);
+    }
+
+    /**
+     * This also tests the abstract
+     */
+    public function testRequestType()
+    {
+        $options = new Mailing();
+        $this->assertEquals('get', $options->getRequestType());
     }
 
     public function testEndPoint()
@@ -35,11 +50,4 @@ class MailingTest extends \PHPUnit_Framework_TestCase
             ->setPromotionId('promo-id');
         $this->assertEquals('/promotions/promo-id/mailings/mailing-id.xml', $options->getEndPoint());
     }
-
-    public function testRequestType()
-    {
-        $options = new Mailing();
-        $this->assertEquals('get', $options->getRequestType());
-    }
-
 }
