@@ -13,3 +13,5 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
    
 ## Statistics / Status
  - [Transaction Mail Status](stats/transactional.md)
+ - [Mailing Stats](stats/mailing.md) 
+ - [Sent Stats](stats/sent.md) 

@@ -102,7 +102,7 @@ class Connection
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curlHandle, CURLOPT_HEADER, 'Accept: application/json');
+        // @todo is this ever actually a thing?  It seems like just strings:  curl_setopt($curlHandle, CURLOPT_HEADER, 'Accept: application/json');
         if ($requestType == OptionsAbstract::REQUEST_TYPE_POST) {
             curl_setopt($curlHandle, CURLOPT_POST, true);
             curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $query);
@@ -152,7 +152,7 @@ class Connection
          */
         switch (curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
             case 404:
-                throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found.", 404);
+                throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found: {$result}", 404);
                 break;
 
             case 403:

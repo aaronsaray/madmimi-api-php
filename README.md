@@ -44,6 +44,8 @@ $connection->request($options);
  
 ### Statistics / Status
  - [Transaction Mail Status](docs/stats/transactional.md)
+ - [Mailing Stats](docs/stats/mailing.md) 
+ - [Sent Stats](docs/stats/sent.md) 
   
 ### Misc
   

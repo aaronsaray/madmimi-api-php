@@ -12,7 +12,7 @@ use MadMimi\Options\OptionsAbstract;
  * Class Transactional
  *
  * @see https://madmimi.com/developer/mailer/status
- * @package MadMimi\Options
+ * @package MadMimi\Options\Stats
  */
 class Transactional extends OptionsAbstract
 {
