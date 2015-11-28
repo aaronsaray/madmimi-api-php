@@ -6,7 +6,6 @@
  */
 
 namespace MadMimi\Options\Stats;
-use MadMimi\Options\OptionsAbstract;
 
 /**
  * Class Transactional
@@ -14,17 +13,9 @@ use MadMimi\Options\OptionsAbstract;
  * @see https://madmimi.com/developer/statistics-api-methods
  * @package MadMimi\Options\Stats
  */
-class Mailing extends OptionsAbstract
+class Mailing extends StatsOptionsAbstract
 {
-    /**
-     * @var string the promotion ID
-     */
-    private $promotionId;
-
-    /**
-     * @var string the mailing ID
-     */
-    private $mailingId;
+    use PromotionMailingBaseTrait;
 
     /**
      * @return string the end point
@@ -32,33 +23,5 @@ class Mailing extends OptionsAbstract
     public function getEndPoint()
     {
         return "/promotions/{$this->promotionId}/mailings/{$this->mailingId}.xml";
-    }
-
-    /**
-     * @return string the request type
-     */
-    public function getRequestType()
-    {
-        return self::REQUEST_TYPE_GET;
-    }
-
-    /**
-     * @param string $promotionId
-     * @return Mailing
-     */
-    public function setPromotionId($promotionId)
-    {
-        $this->promotionId = $promotionId;
-        return $this;
-    }
-
-    /**
-     * @param string $mailingId
-     * @return Mailing
-     */
-    public function setMailingId($mailingId)
-    {
-        $this->mailingId = $mailingId;
-        return $this;
     }
 }
