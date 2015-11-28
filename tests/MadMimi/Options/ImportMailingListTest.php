@@ -34,7 +34,7 @@ class ImportMailingListTest extends \PHPUnit_Framework_TestCase
 
     public function testSetListsFails()
     {
-        $this->setExpectedException('\DomainException', 'This method is not implemented in this class.');
+        $this->setExpectedException('\DomainException', 'This method (MadMimi\Options\ImportMailingList::setLists) is not implemented in this class.');
         $options = new ImportMailingList();
         $options->setLists([]);
     }

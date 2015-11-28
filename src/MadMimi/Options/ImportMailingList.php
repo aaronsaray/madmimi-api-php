@@ -66,6 +66,6 @@ class ImportMailingList extends MailingList
      */
     public function setLists(array $lists)
     {
-        throw new \DomainException('This method is not implemented in this class.');
+        throw new \DomainException('This method (' . __METHOD__ . ') is not implemented in this class.');
     }
 }
