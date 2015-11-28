@@ -46,6 +46,13 @@ $connection->request($options);
  - [Transaction Mail Status](docs/stats/transactional.md)
  - [Mailing Stats](docs/stats/mailing.md) 
  - [Sent Stats](docs/stats/sent.md) 
+ - [Abused Stats](docs/stats/abused.md) 
+ - [Bounced Stats](docs/stats/bounced.md) 
+ - [Clicked Stats](docs/stats/clicked.md) 
+ - [Forwarded Stats](docs/stats/forwarded.md) 
+ - [Links Stats](docs/stats/links.md) 
+ - [Read Stats](docs/stats/read.md) 
+ - [Unsubscribed Stats](docs/stats/unsubscribed.md) 
   
 ### Misc
   

@@ -1,6 +1,6 @@
 <?php
 /**
- * Sent Stats
+ * Clicked Unsubscribed
  *
  * @author Aaron Saray
  */
@@ -8,12 +8,12 @@
 namespace MadMimi\Options\Stats;
 
 /**
- * Class Sent
+ * Class Unsubscribed
  *
  * @see https://madmimi.com/developer/statistics-api-methods
  * @package MadMimi\Options\Stats
  */
-class Sent extends StatsOptionsAbstract
+class Unsubscribed extends StatsOptionsAbstract
 {
     use PromotionMailingBaseTrait;
     use PaginationTrait;
@@ -23,6 +23,6 @@ class Sent extends StatsOptionsAbstract
      */
     public function getEndPoint()
     {
-        return "/promotions/{$this->promotionId}/mailings/{$this->mailingId}/sent.xml";
+        return "/promotions/{$this->promotionId}/mailings/{$this->mailingId}/opt_out.xml";
     }
 }
