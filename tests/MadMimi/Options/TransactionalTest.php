@@ -173,4 +173,16 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->addRecipientToLists(['first list', "Aaron's List", '"fake" list']));
         $this->assertAttributeEquals('"first list","Aaron\'s List","""fake"" list"', 'list_names', $options);
     }
+
+    public function testEndPoint()
+    {
+        $options = new Transactional();
+        $this->assertEquals('/mailer', $options->getEndPoint());
+    }
+
+    public function testRequestType()
+    {
+        $options = new Transactional();
+        $this->assertEquals('post', $options->getRequestType());
+    }
 }

@@ -38,4 +38,16 @@ class ImportMailingListTest extends \PHPUnit_Framework_TestCase
         $options = new ImportMailingList();
         $options->setLists([]);
     }
+
+    public function testEndPoint()
+    {
+        $options = new ImportMailingList();
+        $this->assertEquals('/mailer/to_imported_list', $options->getEndPoint());
+    }
+
+    public function testRequestType()
+    {
+        $options = new ImportMailingList();
+        $this->assertEquals('post', $options->getRequestType());
+    }
 }

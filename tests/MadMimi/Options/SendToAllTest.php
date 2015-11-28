@@ -32,4 +32,16 @@ class SendToAllTest extends \PHPUnit_Framework_TestCase
         $options->setMergeData([]);
     }
 
+    public function testEndPoint()
+    {
+        $options = new SendToAll();
+        $this->assertEquals('/mailer/to_all', $options->getEndPoint());
+    }
+
+    public function testRequestType()
+    {
+        $options = new SendToAll();
+        $this->assertEquals('post', $options->getRequestType());
+    }
+
 }

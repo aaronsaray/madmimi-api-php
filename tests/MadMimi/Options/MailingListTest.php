@@ -93,4 +93,16 @@ class MailingListTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MadMimi\Options\MailingList', $options->setMergeData(['merge', 'data']));
         $this->assertAttributeEquals('merge,data', 'merge_data', $options);
     }
+
+    public function testEndPoint()
+    {
+        $options = new MailingList();
+        $this->assertEquals('/mailer/to_list', $options->getEndPoint());
+    }
+
+    public function testRequestType()
+    {
+        $options = new MailingList();
+        $this->assertEquals('post', $options->getRequestType());
+    }
 }
