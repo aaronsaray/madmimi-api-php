@@ -174,6 +174,12 @@ class Connection
             case 409:
                 throw new NoPromotionOrListException($result, 409);
                 break;
+
+            case 400:
+                if ($result == 'argument out of range') {
+                    throw new \OutOfBoundsException($result, 400);
+                }
+                break;
         }
     }
 

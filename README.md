@@ -53,6 +53,7 @@ $connection->request($options);
  - [Links Stats](docs/stats/links.md) 
  - [Read Stats](docs/stats/read.md) 
  - [Unsubscribed Stats](docs/stats/unsubscribed.md) 
+ - [Transactional Count](docs/stats/transactional-count.md)
   
 ### Misc
   

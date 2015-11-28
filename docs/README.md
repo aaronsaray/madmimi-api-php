@@ -22,3 +22,5 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Links Stats](stats/links.md) 
  - [Read Stats](stats/read.md) 
  - [Unsubscribed Stats](stats/unsubscribed.md) 
+ - [Transactional Count](stats/transactional-count.md)
+ 
