@@ -36,7 +36,8 @@ $connection->send($options);
  - [The Connection Object](docs/connection.md)
  - [Transaction Mail Options](docs/transactional.md)
  - [Mailing List Options](docs/mailing-list.md)
- 
+ - [Import and Send to Mailing List Options](docs/import-mailing-list.md)
+  
 ## About
 
 ### Requirements
