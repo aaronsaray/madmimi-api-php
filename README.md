@@ -19,7 +19,7 @@ the answer to life, the universe and everything.  This email goes to Slartibartf
 <?php
 
 use MadMimi\Connection;
-use MadMimi\Options\Transactional;
+use MadMimi\Options\Mail\Transactional;
 
 $connection = new Connection('your@email.com', 'your-api-key');
 
