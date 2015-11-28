@@ -11,7 +11,7 @@ use MadMimi\Options\Mail\Transactional;
 
 /**
  * Class TransactionalTest
- * @package MadMimi\Tests\Options
+ * @package MadMimi\Tests\Options\Mail
  */
 class TransactionalTest extends \PHPUnit_Framework_TestCase
 {

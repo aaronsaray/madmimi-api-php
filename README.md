@@ -41,6 +41,19 @@ $connection->request($options);
  - [Mailing List Options](docs/mail/mailing-list.md)
  - [Import and Send to Mailing List Options](docs/mail/import-mailing-list.md)
  - [Send to All Options](docs/mail/send-to-all.md)
+ 
+### Statistics / Status
+ - [Transaction Mail Status](docs/stats/transactional.md)
+  
+### Misc
+  
+In general, method calls, responses and organization of this API have been normalized using this library.  So, please check
+the MadMimi documentation AND this code documentation before implementing a method.  Mostly they will translate the same, 
+but from time to time there have been liberties taken in this library.
+
+One such example is the transactional mailer status.  While this documentation is located under the mailer section, and
+the end point contains the /mailer path, it has been moved to the stats section.  This particular call is not for sending
+a mail, but instead, receiving the status of the particular email.  It seems to fit better with the statistics section.
   
 ## About
 

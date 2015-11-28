@@ -11,4 +11,5 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Import and Send to Mailing List Options](mail/import-mailing-list.md)
  - [Send to All Options](mail/send-to-all.md)
    
-
+## Statistics / Status
+ - [Transaction Mail Status](stats/transactional.md)

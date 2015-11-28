@@ -117,8 +117,8 @@ class Connection
             throw new TransferErrorException("HTTP Error Code of {$httpCode} was generated and not caught: " . $result); // really shouldn't ever happen if I do my job right
         }
 
-        $this->debug('Mail sent with ID ' . $result);
-        return $result; // ID
+        $this->debug('Successful call with result: ' . $result);
+        return $result;
     }
 
     /**

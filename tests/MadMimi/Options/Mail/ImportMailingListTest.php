@@ -14,7 +14,7 @@ use MadMimi\Options\Mail\ImportMailingList;
 
 /**
  * Class ImportMailingListTest
- * @package MadMimi\Tests\Options
+ * @package MadMimi\Tests\Options\Mail
  */
 class ImportMailingListTest extends \PHPUnit_Framework_TestCase
 {

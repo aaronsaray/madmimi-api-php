@@ -13,7 +13,7 @@ use MadMimi\Options\Mail\MailingList;
 
 /**
  * Class MailingListTest
- * @package MadMimi\Tests\Options
+ * @package MadMimi\Tests\Options\Mail
  */
 class MailingListTest extends \PHPUnit_Framework_TestCase
 {

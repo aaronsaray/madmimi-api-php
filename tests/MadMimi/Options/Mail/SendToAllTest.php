@@ -14,7 +14,7 @@ use MadMimi\Options\Mail\SendToAll;
 
 /**
  * Class SendToAllTest
- * @package MadMimi\Tests\Options
+ * @package MadMimi\Tests\Options\Mail
  */
 class SendToAllTest extends \PHPUnit_Framework_TestCase
 {
