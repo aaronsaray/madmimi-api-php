@@ -28,16 +28,19 @@ $options->setPromotionName('Meaning of Life')
   ->setPlaceholderValues(['answer'=>'42'])
   ->setTo('iluvcoastlines@planetdesigners.com', 'Slartibartfast');
 
-$connection->send($options);
+$connection->request($options);
 ```
 
 ## Documentation
 
+### Core
  - [The Connection Object](docs/connection.md)
- - [Transaction Mail Options](docs/transactional.md)
- - [Mailing List Options](docs/mailing-list.md)
- - [Import and Send to Mailing List Options](docs/import-mailing-list.md)
- - [Send to All Options](docs/send-to-all.md)
+ 
+### Sending Mail
+ - [Transaction Mail Options](docs/mail/transactional.md)
+ - [Mailing List Options](docs/mail/mailing-list.md)
+ - [Import and Send to Mailing List Options](docs/mail/import-mailing-list.md)
+ - [Send to All Options](docs/mail/send-to-all.md)
   
 ## About
 

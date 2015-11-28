@@ -81,7 +81,7 @@ class Connection
      * @throws TransferErrorException
      * @return string the unique ID that was sent back
      */
-    public function send(OptionsAbstract $options)
+    public function request(OptionsAbstract $options)
     {
         $endPoint = $options->getEndPoint();
         $requestType = $options->getRequestType();

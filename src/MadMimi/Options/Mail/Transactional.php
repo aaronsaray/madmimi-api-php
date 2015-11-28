@@ -5,7 +5,7 @@
  * @author Aaron Saray
  */
 
-namespace MadMimi\Options;
+namespace MadMimi\Options\Mail;
 
 /**
  * Class Transactional

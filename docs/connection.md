@@ -29,7 +29,7 @@ it will print to the HTML output if running through a webserver.
 
 ## Methods Available
 
-- `Connection::send($options)` Send an email using one of the options.
+- `Connection::request($options)` Send a request to the API with one of the options objects.
 
 ## Exceptions and Errors
 

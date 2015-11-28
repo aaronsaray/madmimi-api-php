@@ -1,9 +1,14 @@
 # madmimi-api-php Documentation
 
- - [The Connection Object](connection.md)
- - [Transaction Mail Options](transactional.md)
- - [Mailing List Options](mailing-list.md)
- - [Import and Send to Mailing List Options](import-mailing-list.md)
- - [Send to All Options](send-to-all.md)
-   
 If you haven't already done so, please read the [main Readme](../README.md) first!
+
+## Core
+ - [The Connection Object](connection.md)
+
+## Sending Mail
+ - [Transaction Mail Options](mail/transactional.md)
+ - [Mailing List Options](mail/mailing-list.md)
+ - [Import and Send to Mailing List Options](mail/import-mailing-list.md)
+ - [Send to All Options](mail/send-to-all.md)
+   
+

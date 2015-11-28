@@ -5,9 +5,9 @@
  * @author Aaron Saray
  */
 
-namespace MadMimi\Tests\Options;
+namespace MadMimi\Tests\Options\Mail;
 
-use MadMimi\Options\Transactional;
+use MadMimi\Options\Mail\Transactional;
 
 /**
  * Class TransactionalTest
@@ -49,70 +49,70 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
     public function testSetPromotionName()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setPromotionName('my promotion name'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setPromotionName('my promotion name'));
         $this->assertAttributeEquals('my promotion name', 'promotion_name', $options);
     }
 
     public function testSetSubject()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setSubject('my subject'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setSubject('my subject'));
         $this->assertAttributeEquals('my subject', 'subject', $options);
     }
 
     public function testSetTo()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setTo('me@email.com'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setTo('me@email.com'));
         $this->assertAttributeEquals('me@email.com', 'recipients', $options);
     }
 
     public function testSetFrom()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setFrom('from@email.com'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setFrom('from@email.com'));
         $this->assertAttributeEquals('from@email.com', 'from', $options);
     }
 
     public function testSetCc()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setCc('cc@email.com'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setCc('cc@email.com'));
         $this->assertAttributeEquals('cc@email.com', 'cc', $options);
     }
 
     public function testSetBcc()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setBcc('bcc@email.com'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setBcc('bcc@email.com'));
         $this->assertAttributeEquals('bcc@email.com', 'bcc', $options);
     }
 
     public function testSetSender()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setSender('sender@email.com'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setSender('sender@email.com'));
         $this->assertAttributeEquals('sender@email.com', 'sender', $options);
     }
 
     public function testSetPlaceholders()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setPlaceholderValues(['test'=>'first', 'test2'=>'second']));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setPlaceholderValues(['test'=>'first', 'test2'=>'second']));
         $this->assertAttributeEquals("test: first\ntest2: second\n", 'body', $options);
     }
 
     public function testSetHTML()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setHTML('<blink>Yeah</blink>'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setHTML('<blink>Yeah</blink>'));
         $this->assertAttributeEquals('<blink>Yeah</blink>', 'raw_html', $options);
     }
 
     public function testSetText()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setText('I am an email!'));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setText('I am an email!'));
         $this->assertAttributeEquals('I am an email!', 'raw_plain_text', $options);
     }
 
@@ -129,7 +129,7 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
         catch (\DomainException $de) {
             $this->assertEquals('Parameter of setCheckSuppressed must be a boolean', $de->getMessage());
         }
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->setCheckSuppressed());
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->setCheckSuppressed());
         $this->assertAttributeEquals('yes', 'check_suppressed', $options);
         $options->setCheckSuppressed(false);
         $this->assertAttributeEquals('no', 'check_suppressed', $options);
@@ -170,7 +170,7 @@ class TransactionalTest extends \PHPUnit_Framework_TestCase
     public function testAddRecipientToLists()
     {
         $options = new Transactional();
-        $this->assertInstanceOf('\MadMimi\Options\Transactional', $options->addRecipientToLists(['first list', "Aaron's List", '"fake" list']));
+        $this->assertInstanceOf('\MadMimi\Options\Mail\Transactional', $options->addRecipientToLists(['first list', "Aaron's List", '"fake" list']));
         $this->assertAttributeEquals('"first list","Aaron\'s List","""fake"" list"', 'list_names', $options);
     }
 

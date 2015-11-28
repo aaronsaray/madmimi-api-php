@@ -8,9 +8,9 @@
  * @author Aaron Saray
  */
 
-namespace MadMimi\Tests\Options;
+namespace MadMimi\Tests\Options\Mail;
 
-use MadMimi\Options\SendToAll;
+use MadMimi\Options\Mail\SendToAll;
 
 /**
  * Class SendToAllTest
@@ -20,14 +20,14 @@ class SendToAllTest extends \PHPUnit_Framework_TestCase
 {
     public function testSetListsFails()
     {
-        $this->setExpectedException('\DomainException', 'This method (MadMimi\Options\SendToAll::setLists) is not implemented in this class.');
+        $this->setExpectedException('\DomainException', 'This method (MadMimi\Options\Mail\SendToAll::setLists) is not implemented in this class.');
         $options = new SendToAll();
         $options->setLists([]);
     }
 
     public function testSetMergeDataFails()
     {
-        $this->setExpectedException('\DomainException', 'This method (MadMimi\Options\SendToAll::setMergeData) is not implemented in this class.');
+        $this->setExpectedException('\DomainException', 'This method (MadMimi\Options\Mail\SendToAll::setMergeData) is not implemented in this class.');
         $options = new SendToAll();
         $options->setMergeData([]);
     }
