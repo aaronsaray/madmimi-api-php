@@ -8,7 +8,7 @@ The basic concept is simple for sending a transactional email:
 - Create a connection object
 - Create a Transactional Options object
 - Populate the options object with your desired values using setter methods
-- Call `Connection::sendTransactional()` with your connection object as a parameter - a simple example is located on the main documentation page
+- Call `Connection::send()` with your connection object as a parameter - a simple example is located on the main documentation page
 
 ## Transactional Email Options
 
