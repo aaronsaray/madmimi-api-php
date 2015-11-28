@@ -4,7 +4,7 @@ This option is nearly identical to the [Send To Mailing List](mailing-list.md) o
 
 ## Send to All Options
 
-[MadMimi's Import and Send to a List Documentation](https://madmimi.com/developer/mailer/send_to_all) should give you an idea
+[MadMimi's Import and Send to All Documentation](https://madmimi.com/developer/mailer/send_to_all) should give you an idea
 of what you need to send to the API.  This options object makes some of the methods easier.
 
 ### Method Reference
