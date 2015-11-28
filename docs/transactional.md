@@ -12,7 +12,7 @@ The basic concept is simple for sending a transactional email:
 
 ## Transactional Email Options
 
-(MadMimi's Transactional Email Documentation)[https://madmimi.com/developer/mailer/transactional] should give you an idea
+[MadMimi's Transactional Email Documentation](https://madmimi.com/developer/mailer/transactional) should give you an idea
 of what you need to send to the API.  This options object makes some of the methods easier.
 
 The following things are interesting to note about the options object:

@@ -12,7 +12,7 @@ The basic concept is simple for sending a mailing list email:
 
 ## Mailing List Email Options
 
-(MadMimi's Send to a List Documentation)[https://madmimi.com/developer/mailer/send-to-a-list] should give you an idea
+[MadMimi's Send to a List Documentation](https://madmimi.com/developer/mailer/send-to-a-list) should give you an idea
 of what you need to send to the API.  This options object makes some of the methods easier.
 
 The following things are interesting to note about the options object:
