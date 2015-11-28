@@ -37,6 +37,7 @@ $connection->send($options);
  - [Transaction Mail Options](docs/transactional.md)
  - [Mailing List Options](docs/mailing-list.md)
  - [Import and Send to Mailing List Options](docs/import-mailing-list.md)
+ - [Send to All Options](docs/send-to-all.md)
   
 ## About
 

@@ -1,6 +1,6 @@
 # Import List and Send Email 
 
-This option is nearly identical to the [Send To Mailing List](mailing-list.md) options with some differences.
+This option is nearly identical to the [Send To Mailing List](mailing-list.md) options with only a few differences.
 
 ## Import Mailing List Options
 
