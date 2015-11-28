@@ -1,6 +1,6 @@
 <?php
 /**
- * Transactional Mailer Method Options
+ * Send to a list options
  *
  * @author Aaron Saray
  */
@@ -9,12 +9,12 @@ namespace MadMimi\Options;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Class Transactional
+ * Class MailingList
  *
- * @see https://madmimi.com/developer/mailer/transactional
+ * @see https://madmimi.com/developer/mailer/send-to-a-list
  * @package MadMimi\Options
  */
-class Transactional extends OptionsAbstract
+class MailingList extends OptionsAbstract
 {
     /**
      * @var string the name of the promotion in MadMimi
@@ -27,29 +27,9 @@ class Transactional extends OptionsAbstract
     protected $subject;
 
     /**
-     * @var string the Recipient of the email in format of "name <email>"
-     */
-    protected $recipients;
-
-    /**
      * @var string the from email in format of "name <email>"
      */
     protected $from;
-
-    /**
-     * @var string cc email address
-     */
-    protected $cc;
-
-    /**
-     * @var string bcc email address
-     */
-    protected $bcc;
-
-    /**
-     * @var string the sender email in format of "name <email>" (used for Mail headers)
-     */
-    protected $sender;
 
     /**
      * @var string raw HTML to send with this transactional email
@@ -69,11 +49,6 @@ class Transactional extends OptionsAbstract
     /**
      * @var string a boolean representation
      */
-    protected $check_suppressed;
-
-    /**
-     * @var string a boolean representation
-     */
     protected $track_links;
 
     /**
@@ -82,14 +57,19 @@ class Transactional extends OptionsAbstract
     protected $hidden;
 
     /**
-     * @var string a boolean representation
-     */
-    protected $skip_placeholders;
-
-    /**
      * @var string a csv list of mailing lists to add to
      */
     protected $list_names;
+
+    /**
+     * @var string a boolean representation
+     */
+    protected $prevent_resend;
+
+    /**
+     * @var string a csv list of merge data
+     */
+    protected $merge_data;
 
     /**
      * @param string $promotionName
@@ -112,17 +92,6 @@ class Transactional extends OptionsAbstract
     }
 
     /**
-     * Sets the to address with optional name
-     * @param $email
-     * @param string $name
-     * @return $this
-     */
-    public function setTo($email, $name = '')
-    {
-        return $this->setEmailAddress('recipients', $email, $name);
-    }
-
-    /**
      * Sets the from address with optional name
      * @param $email
      * @param string $name
@@ -131,39 +100,6 @@ class Transactional extends OptionsAbstract
     public function setFrom($email, $name = '')
     {
         return $this->setEmailAddress('from', $email, $name);
-    }
-
-    /**
-     * Sets the cc address, does not accept a name
-     * @param $email
-     * @return $this
-     */
-    public function setCc($email)
-    {
-        return $this->setEmailAddress('cc', $email);
-    }
-
-    /**
-     * Sets the bcc address, does not accept a name
-     * @param $email
-     * @return $this
-     */
-    public function setBcc($email)
-    {
-        return $this->setEmailAddress('bcc', $email);
-    }
-
-    /**
-     * Sets the sender address with optional name (you probably want to use self::setFrom())
-     *
-     * Used for the Sender header in the email
-     * @param $email
-     * @param string $name
-     * @return $this
-     */
-    public function setSender($email, $name = '')
-    {
-        return $this->setEmailAddress('sender', $email, $name);
     }
 
     /**
@@ -203,17 +139,6 @@ class Transactional extends OptionsAbstract
     }
 
     /**
-     * Check suppressed
-     *
-     * @param bool|true $bool
-     * @return $this
-     */
-    public function setCheckSuppressed($bool = true)
-    {
-        return $this->setTranslatedBooleanValue('check_suppressed', $bool);
-    }
-
-    /**
      * Track links
      *
      * @param bool|true $bool
@@ -236,25 +161,39 @@ class Transactional extends OptionsAbstract
     }
 
     /**
-     * sets whether to ignore the {placeholders}
-     *
-     * @param bool|true $bool
-     * @return $this
-     */
-    public function setSkipPlaceholders($bool = true)
-    {
-        return $this->setTranslatedBooleanValue('skip_placeholders', $bool);
-    }
-
-    /**
-     * This sets the lists via their name that you want to add your recipient to
+     * This sets the lists to send to
      *
      * This will take care of formatting it properly for the API
      * @param array $lists
      * @return $this
      */
-    public function addRecipientToLists(array $lists)
+    public function setLists(array $lists)
     {
         return $this->setCsvValueFromArray('list_names', $lists);
+    }
+
+    /**
+     * Makes sure audience doesn't recieve this again if they've received it the first time
+     *
+     * @param bool|true $bool
+     * @return $this
+     */
+    public function setPreventResend($bool = true)
+    {
+        return $this->setTranslatedBooleanValue('prevent_resend', $bool);
+    }
+
+    /**
+     * Set the merge data
+     *
+     * This will take care of formatting it properly for the API
+     *
+     * @todo figure out how this actually works
+     * @param array $mergeData
+     * @return $this
+     */
+    public function setMergeData(array $mergeData)
+    {
+        return $this->setCsvValueFromArray('merge_data', $mergeData);
     }
 }
