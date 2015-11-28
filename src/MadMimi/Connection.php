@@ -8,7 +8,7 @@
 namespace MadMimi;
 use MadMimi\Exception\AuthenticationException;
 use MadMimi\Exception\MissingPlaceholdersException;
-use MadMimi\Exception\NoPromotionException;
+use MadMimi\Exception\NoPromotionOrListException;
 use MadMimi\Exception\TransferErrorException;
 use MadMimi\Options\OptionsAbstract;
 use Monolog\Handler\StreamHandler;
@@ -77,7 +77,7 @@ class Connection
      *
      * @param OptionsAbstract $options optiosn for this send
      * @throws AuthenticationException
-     * @throws NoPromotionException
+     * @throws NoPromotionOrListException
      * @throws TransferErrorException
      * @return string the unique ID that was sent back
      */
@@ -128,7 +128,7 @@ class Connection
      * @param $result string the result of this request
      * @throws AuthenticationException
      * @throws MissingPlaceholdersException
-     * @throws NoPromotionException
+     * @throws NoPromotionOrListException
      * @throws TransferErrorException
      */
     protected function handleSendError($curlHandle, $result)
@@ -172,7 +172,7 @@ class Connection
                 break;
 
             case 409:
-                throw new NoPromotionException($result, 409);
+                throw new NoPromotionOrListException($result, 409);
                 break;
         }
     }

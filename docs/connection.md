@@ -38,5 +38,5 @@ The following exceptions may be thrown throughout the duration of a connection o
 
 - `AuthenticationException` Your email or API key is not valid, your account is suspended, or you cannot yet use this resource.  The exception message will give more details.
 - `MissingPlaceholdersException` You attempted to send a transactional message to a promotion with placeholders but your request is missing one or more placeholders.
-- `NoPromotionException` There was an attempt to send a message to a promotion that does not exist (most likely you may have forgotten to send raw html or plain text?)
+- `NoPromotionOrListException` There was an attempt to send a message to a promotion that does not exist (most likely you may have forgotten to send raw html or plain text?) or an attempt to send to a list that does not exist.
 - `TransferErrorException` There was a 404, 500 or some other type of error.  The message should have more.  This is most likely not a recoverable error.
