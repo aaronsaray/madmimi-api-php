@@ -13,7 +13,7 @@ namespace MadMimi\Options\Mail;
  * @see https://madmimi.com/developer/mailer/send-to-a-list
  * @package MadMimi\Options
  */
-class MailingList extends OptionsAbstract
+class MailingList extends MailOptionsAbstract
 {
     use PromotionBaseTrait;
 

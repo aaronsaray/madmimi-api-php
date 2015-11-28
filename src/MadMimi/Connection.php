@@ -75,7 +75,7 @@ class Connection
     /**
      * Sends the request
      *
-     * @param OptionsAbstract $options optiosn for this send
+     * @param OptionsAbstract $options options for this send
      * @throws AuthenticationException
      * @throws NoPromotionOrListException
      * @throws TransferErrorException

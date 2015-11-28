@@ -13,7 +13,7 @@ namespace MadMimi\Options\Mail;
  * @see https://madmimi.com/developer/mailer/transactional
  * @package MadMimi\Options
  */
-class Transactional extends OptionsAbstract
+class Transactional extends MailOptionsAbstract
 {
     use PromotionBaseTrait;
 
