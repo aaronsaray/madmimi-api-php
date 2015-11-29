@@ -11,7 +11,7 @@ use MadMimi\Options\OptionsAbstract;
 
 /**
  * Class MailOptionsAbstract
- * @package MadMimi\Options
+ * @package MadMimi\Options\Mail
  */
 abstract class MailOptionsAbstract extends OptionsAbstract
 {

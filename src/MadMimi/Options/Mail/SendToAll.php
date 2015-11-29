@@ -11,7 +11,7 @@ namespace MadMimi\Options\Mail;
  * Class SendToAll
  *
  * @see https://madmimi.com/developer/mailer/send_to_all
- * @package MadMimi\Options
+ * @package MadMimi\Options\Mail
  */
 class SendToAll extends MailingList
 {

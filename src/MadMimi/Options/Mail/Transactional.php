@@ -11,7 +11,7 @@ namespace MadMimi\Options\Mail;
  * Class Transactional
  *
  * @see https://madmimi.com/developer/mailer/transactional
- * @package MadMimi\Options
+ * @package MadMimi\Options\Mail
  */
 class Transactional extends MailOptionsAbstract
 {

@@ -11,7 +11,7 @@ namespace MadMimi\Options\Mail;
  * Class ImportMailingList
  *
  * @see https://madmimi.com/developer/mailer/import-and-send-to-a-list
- * @package MadMimi\Options
+ * @package MadMimi\Options\Mail
  */
 class ImportMailingList extends MailingList
 {

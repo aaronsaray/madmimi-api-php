@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Yaml;
  *
  * Most email will use these properties.  There is a notable difference between the transactional and list based emails, though
  *
- * @package MadMimi\Options
+ * @package MadMimi\Options\Mail
  */
 trait PromotionBaseTrait
 {

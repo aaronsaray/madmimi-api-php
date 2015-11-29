@@ -11,7 +11,7 @@ namespace MadMimi\Options\Mail;
  * Class MailingList
  *
  * @see https://madmimi.com/developer/mailer/send-to-a-list
- * @package MadMimi\Options
+ * @package MadMimi\Options\Mail
  */
 class MailingList extends MailOptionsAbstract
 {
