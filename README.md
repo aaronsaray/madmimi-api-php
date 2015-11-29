@@ -85,7 +85,7 @@ The following items are either non-working or haven't yet been verified:
 #### Social Links
  - [List All](docs/addons/sociallinks/all.md)
  - [List User's](docs/addons/sociallinks/user.md)
- - [Update User's](doc/addons/sociallinks/update.md)
+ - [Update User's](docs/addons/sociallinks/update.md)
    
 ### Misc
   
