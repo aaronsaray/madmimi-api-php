@@ -41,3 +41,4 @@ The following exceptions may be thrown throughout the duration of a connection o
 - `NoPromotionOrListException` There was an attempt to send a message to a promotion that does not exist (most likely you may have forgotten to send raw html or plain text?) or an attempt to send to a list that does not exist.
 - `TransferErrorException` There was a 404, 500 or some other type of error.  The message should have more.  This is most likely not a recoverable error.
 - `\OutOfRangeException` An argument sent with the request was out of range (PHP SPL Exception and in global namespace.)
+- `InvalidOptionException` The request was correct, but was missing one or more options.

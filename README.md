@@ -65,12 +65,14 @@ $transactionId = $connection->request($options);
  - [List All](docs/promotions/all.md)
  - [Get Single](docs/promotions/single.md)
  - [Search](docs/promotions/search.md)
+ - [Save](docs/promotions/save.md)
    
 ### Misc
   
-In general, method calls, responses and organization of this API have been normalized using this library.  So, please check
+In general, method calls and organization of this API have been normalized using this library.  So, please check
 the MadMimi documentation AND this code documentation before implementing a method.  Mostly they will translate the same, 
-but from time to time there have been liberties taken in this library.
+but from time to time there have been liberties taken in this library.  The responses are not currently translated into
+known, normalized objects.
 
 One such example is the transactional mailer status.  While this documentation is located under the mailer section, and
 the end point contains the /mailer path, it has been moved to the stats section.  This particular call is not for sending

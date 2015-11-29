@@ -7,6 +7,7 @@
 
 namespace MadMimi;
 use MadMimi\Exception\AuthenticationException;
+use MadMimi\Exception\InvalidOptionException;
 use MadMimi\Exception\MissingPlaceholdersException;
 use MadMimi\Exception\NoPromotionOrListException;
 use MadMimi\Exception\TransferErrorException;
@@ -191,6 +192,11 @@ class Connection
                         break;
 
                 }
+                break;
+
+            case 422:
+                throw new InvalidOptionException($result, 422);
+                break;
         }
     }
 

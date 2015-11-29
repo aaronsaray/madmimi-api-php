@@ -18,7 +18,7 @@ class Save extends OptionsAbstract
     /**
      * @var string the exact name
      */
-    protected $name;
+    protected $promotion_name;
 
     /**
      * @var string raw HTML to send with this transactional email
@@ -43,7 +43,7 @@ class Save extends OptionsAbstract
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->promotion_name = $name;
         return $this;
     }
 
