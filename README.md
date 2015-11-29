@@ -61,6 +61,9 @@ $connection->request($options);
  - [List All](docs/webforms/all.md)
  - [Get Single](docs/webforms/single.md)
    
+### Promotions
+ - [List All](promotions/all.md)
+   
 ### Misc
   
 In general, method calls, responses and organization of this API have been normalized using this library.  So, please check

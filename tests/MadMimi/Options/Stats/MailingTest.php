@@ -37,7 +37,7 @@ class MailingTest extends \PHPUnit_Framework_TestCase
     /**
      * This also tests the abstract
      */
-    public function testRequestType()
+    public function testGetRequestType()
     {
         $options = new Mailing();
         $this->assertEquals('get', $options->getRequestType());

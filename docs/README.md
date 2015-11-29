@@ -26,6 +26,10 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Members Created Count](stats/members-created-count.md)
  - [Promotion Attempts](stats/promotion-attempts.md)
 
-### Webforms
+## Webforms
  - [List All](webforms/all.md)
  - [Get Single](webforms/single.md)
+
+## Promotions
+ - [List All](promotions/all.md)
+ 
