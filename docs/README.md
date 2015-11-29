@@ -23,4 +23,4 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Read Stats](stats/read.md) 
  - [Unsubscribed Stats](stats/unsubscribed.md) 
  - [Transactional Count](stats/transactional-count.md)
- 
+ - [Members Created Count](stats/members-created-count.md)

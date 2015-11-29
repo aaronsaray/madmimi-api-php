@@ -54,7 +54,8 @@ $connection->request($options);
  - [Read Stats](docs/stats/read.md) 
  - [Unsubscribed Stats](docs/stats/unsubscribed.md) 
  - [Transactional Count](docs/stats/transactional-count.md)
-  
+ - [Members Created Count](docs/stats/members-created-count.md)
+   
 ### Misc
   
 In general, method calls, responses and organization of this API have been normalized using this library.  So, please check
