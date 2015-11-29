@@ -52,3 +52,6 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [List All](addons/sociallinks/all.md)
  - [List User's](addons/sociallinks/user.md)
  - [Update User's](addons/sociallinks/update.md)
+
+### Child Accounts
+ - [List All](addons/childaccounts/all.md)   

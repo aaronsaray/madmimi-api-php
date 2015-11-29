@@ -88,6 +88,9 @@ The following items are either non-working or haven't yet been verified:
  - [List User's](docs/addons/sociallinks/user.md)
  - [Update User's](docs/addons/sociallinks/update.md)
    
+#### Child Accounts
+ - [List All](docs/addons/childaccounts/all.md)   
+   
 ### Misc
   
 In general, method calls and organization of this API have been normalized using this library.  So, please check
