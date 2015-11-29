@@ -28,7 +28,7 @@ $options->setPromotionName('Meaning of Life')
   ->setPlaceholderValues(['answer'=>'42'])
   ->setTo('iluvcoastlines@planetdesigners.com', 'Slartibartfast');
 
-$connection->request($options);
+$transactionId = $connection->request($options);
 ```
 
 ## Documentation
