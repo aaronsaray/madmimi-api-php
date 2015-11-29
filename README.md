@@ -33,6 +33,10 @@ $transactionId = $connection->request($options);
 
 ## Documentation
 
+The following items are either non-working or haven't yet been verified:
+- Google Analytics Add/Delete - giving 404 each call
+- Toggle User's Analytics - Using a URL different than in the API documentation - may not be stable
+
 ### Core
  - [The Connection Object](docs/connection.md)
  
@@ -72,6 +76,11 @@ $transactionId = $connection->request($options);
  - [List All](docs/addons/all.md)
  - [List User's](docs/addons/user.md)
  - [Toggle User's](doc/addons/toggle.md)
+ 
+#### Google Analytics
+ - [List All Domains](docs/addons/ga/all.md)
+ - [Add a Domain](docs/addons/ga/add.md)
+ - [Delete a Domain](docs/addons/ga/delete.md)
    
 ### Misc
   

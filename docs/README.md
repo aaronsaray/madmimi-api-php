@@ -41,3 +41,8 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [List All](addons/all.md)
  - [List User's](addons/user.md)
  - [Toggle User's](addons/toggle.md)
+
+### Google Analytics
+ - [List All Domains](addons/ga/all.md)
+ - [Add a Domain](addons/ga/add.md)
+ - [Delete a Domain](addons/ga/delete.md)
