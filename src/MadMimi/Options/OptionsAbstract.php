@@ -26,6 +26,11 @@ abstract class OptionsAbstract
     const REQUEST_TYPE_GET = 'get';
 
     /**
+     * @var string this is the put method
+     */
+    const REQUEST_TYPE_PUT = 'put';
+
+    /**
      * OptionsAbstract constructor.
      *
      * You can pass in the properties here directly - if you know what they are exactly.  It might be easier though

@@ -1,0 +1,18 @@
+# Delete a Single Promotion
+
+This deletes a promotion specified by the ID
+
+## Delete Promotion Options
+
+[MadMimi's Promotion Documentation](https://madmimi.com/developer/api/promotions) should give you an idea
+of what you need to send to the API.  This options object makes some of the methods easier.  
+
+### Method Reference
+
+`Single::setPromotionId($promotionId)` - Sets the promotion ID to delete
+
+## Exceptions
+
+The following exceptions may be thrown throughout the duration of a options object.  
+
+- `MadMimi\Exception\InvalidOptionException` During options object creation, a value in the array of the constructor argument that's key was not defined as a protected property of this options class

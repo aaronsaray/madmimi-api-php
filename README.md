@@ -66,6 +66,7 @@ $transactionId = $connection->request($options);
  - [Get Single](docs/promotions/single.md)
  - [Search](docs/promotions/search.md)
  - [Save](docs/promotions/save.md)
+ - [Delete](promotions/delete.md)
    
 ### Misc
   

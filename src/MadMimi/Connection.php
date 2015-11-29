@@ -103,10 +103,15 @@ class Connection
         $curlHandle = curl_init();
         curl_setopt($curlHandle, CURLOPT_URL, $url);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
-        // @todo is this ever actually a thing?  It seems like just strings:  curl_setopt($curlHandle, CURLOPT_HEADER, 'Accept: application/json');
-        if ($requestType == OptionsAbstract::REQUEST_TYPE_POST) {
-            curl_setopt($curlHandle, CURLOPT_POST, true);
+
+        if ($requestType == OptionsAbstract::REQUEST_TYPE_POST || $requestType == OptionsAbstract::REQUEST_TYPE_PUT) {
             curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $query);
+            if ($requestType == OptionsAbstract::REQUEST_TYPE_POST) {
+                curl_setopt($curlHandle, CURLOPT_POST, true);
+            }
+            else {
+                curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, "PUT");
+            }
         }
 
         $result = curl_exec($curlHandle);

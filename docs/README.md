@@ -35,4 +35,5 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Get Single](promotions/single.md)
  - [Search](promotions/search.md)
  - [Save](promotions/save.md)
+ - [Delete](promotions/delete.md)
  
