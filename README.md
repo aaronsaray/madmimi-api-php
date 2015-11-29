@@ -56,6 +56,10 @@ $connection->request($options);
  - [Transactional Count](docs/stats/transactional-count.md)
  - [Members Created Count](docs/stats/members-created-count.md)
  - [Promotion Attempts](docs/stats/promotion-attempts.md)
+ 
+### Webforms
+ - [List All](docs/webforms/all.md)
+ - [Get Single](docs/webforms/single.md)
    
 ### Misc
   

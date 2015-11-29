@@ -25,3 +25,7 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Transactional Count](stats/transactional-count.md)
  - [Members Created Count](stats/members-created-count.md)
  - [Promotion Attempts](stats/promotion-attempts.md)
+
+### Webforms
+ - [List All](webforms/all.md)
+ - [Get Single](webforms/single.md)
