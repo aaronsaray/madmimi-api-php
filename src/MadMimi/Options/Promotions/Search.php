@@ -70,7 +70,9 @@ class Search extends OptionsAbstract
     }
 
     /**
-     * @todo figure this out - documentation says false and not 'off' and the boolean part is not there
+     * Set include the api generated mailings
+     *
+     * @note I'm not sure if this is working or not to be honest - this seems to be a different paradigm than on/off
      * @param bool|true $includeApiMailings
      * @return $this
      */

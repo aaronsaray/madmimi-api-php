@@ -33,3 +33,4 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
 ## Promotions
  - [List All](promotions/all.md)
  - [Get Single](promotions/single.md)
+ - [Search](promotions/search.md)

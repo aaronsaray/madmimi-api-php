@@ -64,6 +64,7 @@ $connection->request($options);
 ### Promotions
  - [List All](docs/promotions/all.md)
  - [Get Single](docs/promotions/single.md)
+ - [Search](docs/promotions/search.md)
    
 ### Misc
   
