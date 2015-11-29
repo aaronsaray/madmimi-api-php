@@ -202,6 +202,10 @@ class Connection
             case 422:
                 throw new InvalidOptionException($result, 422);
                 break;
+
+            case 302:
+                throw new TransferErrorException('Most likely this option is not available for your account.', 400);
+                break;
         }
     }
 

@@ -41,6 +41,7 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [List All](addons/all.md)
  - [List User's](addons/user.md)
  - [Toggle User's](addons/toggle.md)
+ - [List All Drip Campaigns](addons/drip.md)
 
 ### Google Analytics
  - [List All Domains](addons/ga/all.md)

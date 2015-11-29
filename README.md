@@ -76,6 +76,7 @@ The following items are either non-working or haven't yet been verified:
  - [List All](docs/addons/all.md)
  - [List User's](docs/addons/user.md)
  - [Toggle User's](doc/addons/toggle.md)
+ - [List All Drip Campaigns](docs/addons/drip.md)
  
 #### Google Analytics
  - [List All Domains](docs/addons/ga/all.md)
