@@ -62,7 +62,8 @@ $connection->request($options);
  - [Get Single](docs/webforms/single.md)
    
 ### Promotions
- - [List All](promotions/all.md)
+ - [List All](docs/promotions/all.md)
+ - [Get Single](docs/promotions/single.md)
    
 ### Misc
   
@@ -73,6 +74,9 @@ but from time to time there have been liberties taken in this library.
 One such example is the transactional mailer status.  While this documentation is located under the mailer section, and
 the end point contains the /mailer path, it has been moved to the stats section.  This particular call is not for sending
 a mail, but instead, receiving the status of the particular email.  It seems to fit better with the statistics section.
+
+Another example is the promotion search API.  The search functionality was split up - the search by exact ID is in the single
+retrieval option - whereas the rest of the search criteria is in the search option.  This mirrors the webforms paradigm.
   
 ## About
 
