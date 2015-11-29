@@ -81,6 +81,11 @@ The following items are either non-working or haven't yet been verified:
  - [List All Domains](docs/addons/ga/all.md)
  - [Add a Domain](docs/addons/ga/add.md)
  - [Delete a Domain](docs/addons/ga/delete.md)
+ 
+#### Social Links
+ - [List All](docs/addons/sociallinks/all.md)
+ - [List User's](docs/addons/sociallinks/user.md)
+ - [Update User's](doc/addons/sociallinks/update.md)
    
 ### Misc
   

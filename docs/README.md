@@ -46,3 +46,8 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [List All Domains](addons/ga/all.md)
  - [Add a Domain](addons/ga/add.md)
  - [Delete a Domain](addons/ga/delete.md)
+
+### Social Links
+ - [List All](addons/sociallinks/all.md)
+ - [List User's](addons/sociallinks/user.md)
+ - [Update User's](addons/sociallinks/update.md)
