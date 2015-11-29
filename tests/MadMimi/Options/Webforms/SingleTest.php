@@ -20,4 +20,10 @@ class SingleTest extends \PHPUnit_Framework_TestCase
         $options->setWebformId('webform-id');
         $this->assertEquals('/signups/webform-id.json', $options->getEndPoint());
     }
+
+    public function testGetRequestType()
+    {
+        $options = new Single();
+        $this->assertEquals('get', $options->getRequestType());
+    }
 }

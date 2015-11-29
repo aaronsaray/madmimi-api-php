@@ -67,6 +67,11 @@ $transactionId = $connection->request($options);
  - [Search](docs/promotions/search.md)
  - [Save](docs/promotions/save.md)
  - [Delete](promotions/delete.md)
+
+### Addons
+ - [List All](docs/addons/all.md)
+ - [List User's](docs/addons/user.md)
+ - [Toggle User's](doc/addons/toggle.md)
    
 ### Misc
   
