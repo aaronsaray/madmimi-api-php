@@ -10,9 +10,13 @@ of what you need to send to the API.  This options object makes some of the meth
 ### Method Reference
 
 `Search::setNamePart($namePart)` - Search by this fragment of the promotion name
+
 `Search::setName($name)` - Search by this exact promotion name
+
 `Search::setIncludeApiMailings()` - Whether to include mailings sent by the API
+
 `Search::setFromDate(\DateTime $fromDate)` - The beginning of the search window - must PHP DateTime object
+
 `Search::setToDate(\DateTime $toDate)` - The end of the search window - must PHP DateTime object
 
 ## Exceptions
