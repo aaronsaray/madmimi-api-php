@@ -179,6 +179,9 @@ class Connection
                 if ($result == 'argument out of range' || $result == 'count_new calls are limited to data collected within the space of a month') {
                     throw new \OutOfBoundsException($result, 400);
                 }
+                if (stripos($result, 'does not exist') !== false) {
+                    throw new TransferErrorException("An element was not found: {$result}", 404);
+                }
                 break;
         }
     }

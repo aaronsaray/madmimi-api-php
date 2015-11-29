@@ -55,6 +55,7 @@ $connection->request($options);
  - [Unsubscribed Stats](docs/stats/unsubscribed.md) 
  - [Transactional Count](docs/stats/transactional-count.md)
  - [Members Created Count](docs/stats/members-created-count.md)
+ - [Promotion Attempts](docs/stats/promotion-attempts.md)
    
 ### Misc
   

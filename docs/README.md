@@ -24,3 +24,4 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Unsubscribed Stats](stats/unsubscribed.md) 
  - [Transactional Count](stats/transactional-count.md)
  - [Members Created Count](stats/members-created-count.md)
+ - [Promotion Attempts](stats/promotion-attempts.md)
