@@ -128,7 +128,7 @@ Aaron Saray - <http://aaronsaray.com>
 
 ### License
 
-This library is licensed under the MIT License - see the [LICENSE](license) file for details
+This library is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ### Acknowledgements
 
