@@ -73,6 +73,9 @@ The following items are either non-working or haven't yet been verified:
  - [Save](docs/promotions/save.md)
  - [Delete](promotions/delete.md)
 
+### Members
+ - [List All](docs/members/all.md)
+
 ### Addons
  - [List All](docs/addons/all.md)
  - [List User's](docs/addons/user.md)

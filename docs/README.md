@@ -37,6 +37,9 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Save](promotions/save.md)
  - [Delete](promotions/delete.md)
  
+## Members
+ - [List All](members/all.md)
+ 
 ## Addons
  - [List All](addons/all.md)
  - [List User's](addons/user.md)
