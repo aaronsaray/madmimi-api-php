@@ -120,7 +120,7 @@ class Transactional extends MailOptionsAbstract
      */
     public function setCheckSuppressed($bool = true)
     {
-        return $this->setTranslatedBooleanValue('check_suppressed', $bool);
+        return $this->setTranslatedBooleanToString('check_suppressed', $bool);
     }
 
     /**
@@ -131,7 +131,7 @@ class Transactional extends MailOptionsAbstract
      */
     public function setSkipPlaceholders($bool = true)
     {
-        return $this->setTranslatedBooleanValue('skip_placeholders', $bool);
+        return $this->setTranslatedBooleanToString('skip_placeholders', $bool);
     }
 
     /**

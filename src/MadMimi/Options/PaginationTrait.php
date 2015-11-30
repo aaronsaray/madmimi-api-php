@@ -5,11 +5,11 @@
  * @author Aaron Saray
  */
 
-namespace MadMimi\Options\Stats;
+namespace MadMimi\Options;
 
 /**
  * Class PaginationTrait
- * @package MadMimi\Options\Stats
+ * @package MadMimi\Options
  */
 trait PaginationTrait
 {

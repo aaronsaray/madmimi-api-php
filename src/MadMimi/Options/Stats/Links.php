@@ -6,6 +6,7 @@
  */
 
 namespace MadMimi\Options\Stats;
+use MadMimi\Options\PaginationTrait;
 
 /**
  * Class Links

@@ -68,7 +68,7 @@ class MailingList extends MailOptionsAbstract
      */
     public function setPreventResend($bool = true)
     {
-        return $this->setTranslatedBooleanValue('prevent_resend', $bool);
+        return $this->setTranslatedBooleanToString('prevent_resend', $bool);
     }
 
     /**

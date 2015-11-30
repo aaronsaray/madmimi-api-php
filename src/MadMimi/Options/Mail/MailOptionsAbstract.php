@@ -36,7 +36,7 @@ abstract class MailOptionsAbstract extends OptionsAbstract
      * @param $bool boolean true or false for this option
      * @return $this
      */
-    protected function setTranslatedBooleanValue($key, $bool)
+    protected function setTranslatedBooleanToString($key, $bool)
     {
         if (!is_bool($bool)) throw new \DomainException('Parameter of ' . debug_backtrace()[1]['function'] . ' must be a boolean');
 
