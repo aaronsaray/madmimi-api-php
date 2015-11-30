@@ -12,7 +12,7 @@ use MadMimi\Options\OptionsAbstract;
  * Class All
  *
  * @see https://madmimi.com/developer/addon-api-methods
- * @package MadMimi\Options\Addons
+ * @package MadMimi\Options\Addons\GoogleAnalytics
  */
 class All extends OptionsAbstract
 {

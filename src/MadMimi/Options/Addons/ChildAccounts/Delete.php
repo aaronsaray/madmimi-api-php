@@ -1,44 +1,43 @@
 <?php
 /**
- * Delete a google analytics domain
+ * Delete a child account
  *
  * @author Aaron Saray
  */
 
-namespace MadMimi\Options\Addons\GoogleAnalytics;
+namespace MadMimi\Options\Addons\ChildAccounts;
 use MadMimi\Options\OptionsAbstract;
 
 /**
  * Class Delete
  *
  * @see https://madmimi.com/developer/addon-api-methods
- * @package MadMimi\Options\Addons\GoogleAnalytics
+ * @package MadMimi\Options\Addons\ChildAccounts
  */
 class Delete extends OptionsAbstract
 {
     /**
-     * @var string the GA domain
+     * @var string email address
      */
-    protected $domain;
+    protected $email;
 
     /**
-     * Set the domain to add
+     * Set the email
      *
-     * @param $domain string
-     * @return $this
+     * @param string $email
+     * @return Add
      */
-    public function setDomain($domain)
+    public function setEmail($email)
     {
-        $this->domain = $domain;
+        $this->email = $email;
         return $this;
     }
-
     /**
      * @return string the end point
      */
     public function getEndPoint()
     {
-        return '/google_analytics/delete';
+        return '/participants/destroy';
     }
 
     /**

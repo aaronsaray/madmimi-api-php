@@ -43,21 +43,4 @@ abstract class MailOptionsAbstract extends OptionsAbstract
         $this->$key = $bool ? 'yes' : 'no';
         return $this;
     }
-
-    /**
-     * This creates a csv from an array and assigns it internally
-     *
-     * @param string $key the internal key
-     * @param array $values the values to make into csv
-     * @return $this
-     */
-    protected function setCsvValueFromArray($key, array $values)
-    {
-        $handle = fopen('php://temp', 'r+');
-        fputcsv($handle, $values);
-        rewind($handle);
-        $this->$key = trim(stream_get_contents($handle));
-        fclose($handle);
-        return $this;
-    }
 }
