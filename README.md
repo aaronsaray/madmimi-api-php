@@ -36,6 +36,7 @@ $transactionId = $connection->request($options);
 The following items are either non-working or haven't yet been verified:
 - Google Analytics Add/Delete - giving 404 each call
 - Toggle User's Analytics - Using a URL different than in the API documentation - may not be stable
+- Child account and other addons don't appear to be working as I interpret the documentation to indicate
 
 ### Core
  - [The Connection Object](docs/connection.md)
@@ -90,6 +91,10 @@ The following items are either non-working or haven't yet been verified:
    
 #### Child Accounts
  - [List All](docs/addons/childaccounts/all.md)   
+ - [Add](docs/addons/childaccounts/add.md)   
+ - [Update](docs/addons/childaccounts/update.md)   
+ - [Delete](docs/addons/childaccounts/delete.md)   
+ - [Update List Permissions](docs/addons/childaccounts/permissions.md)   
    
 ### Misc
   

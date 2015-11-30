@@ -81,7 +81,7 @@ class Permissions extends OptionsAbstract
      */
     public function setListsToNoPermission(array $lists)
     {
-        return $this->setCsvValueFromArray('no', $lists);
+        return $this->setCsvValueFromArray('none', $lists);
     }
 
     /**

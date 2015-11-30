@@ -21,6 +21,27 @@ class PermissionsTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('email@domain.com', 'email', $options);
     }
 
+    public function testFullPermissions()
+    {
+        $options = new Permissions();
+        $this->assertInstanceOf('\MadMimi\Options\Addons\ChildAccounts\Permissions', $options->setListsToFullPermission(['my list', "Aaron's List", '"another" list']));
+        $this->assertAttributeEquals('"my list","Aaron\'s List","""another"" list"', 'full', $options);
+    }
+
+    public function testReadPermissions()
+    {
+        $options = new Permissions();
+        $this->assertInstanceOf('\MadMimi\Options\Addons\ChildAccounts\Permissions', $options->setListsToReadPermission(['my list', "Aaron's List", '"another" list']));
+        $this->assertAttributeEquals('"my list","Aaron\'s List","""another"" list"', 'read', $options);
+    }
+
+    public function testNoPermissions()
+    {
+        $options = new Permissions();
+        $this->assertInstanceOf('\MadMimi\Options\Addons\ChildAccounts\Permissions', $options->setListsToNoPermission(['my list', "Aaron's List", '"another" list']));
+        $this->assertAttributeEquals('"my list","Aaron\'s List","""another"" list"', 'none', $options);
+    }
+
     public function testEndPoint()
     {
         $options = new Permissions();

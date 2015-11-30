@@ -55,3 +55,7 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
 
 ### Child Accounts
  - [List All](addons/childaccounts/all.md)   
+ - [Add](addons/childaccounts/add.md)   
+ - [Update](addons/childaccounts/update.md)   
+ - [Delete](addons/childaccounts/delete.md)   
+ - [Update List Permissions](addons/childaccounts/permissions.md)   
