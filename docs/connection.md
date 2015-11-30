@@ -13,7 +13,7 @@ use MadMimi\Connection;
 $connection = new Connection('your@email.com', 'your-api-key');
 ```
 
-This `$connection` object is now ready to be used with any of it's public methods.
+This `$connection` object is now ready to be used with any of its public methods.
 
 ## Debugging
 
