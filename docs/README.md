@@ -45,6 +45,7 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Events Since](members/events-since.md)
  - [Create](members/create.md)
  - [Update Email](members/update-email.md)
+ - [Update](members/update.md) 
  
 ## Addons
  - [List All](addons/all.md)

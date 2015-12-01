@@ -4,7 +4,7 @@ Updates a member's email (this is necessary and separate from the update option 
 
 ## Update Member Email Options
 
-[MadMimi's List All Members Documentation](https://madmimi.com/developer/lists) should give you an idea
+[MadMimi's Edit Member's Email Documentation](https://madmimi.com/developer/lists) should give you an idea
 of what you need to send to the API.  This options object makes some of the methods easier.
 
 ### Method Reference

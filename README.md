@@ -82,6 +82,7 @@ The following items are either non-working or haven't yet been verified:
  - [Events Since](docs/members/events-since.md)
  - [Create](docs/members/create.md)
  - [Update Email](docs/members/update-email.md)
+ - [Update](docs/members/update.md) 
  
 ### Addons
  - [List All](docs/addons/all.md)
