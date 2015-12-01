@@ -8,7 +8,9 @@ requires PHP 5.4+ and curl to be installed.
 
 This library is available on packagist and can be installed using composer.
 
-** Coming soon ** 
+```bash
+$ composer require aaronsaray/madmimi-api-php
+```
 
 ## Basic Usage
 
