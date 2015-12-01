@@ -7,14 +7,13 @@
 
 namespace MadMimi\Options\Members;
 
-use MadMimi\Options\OptionsAbstract;
 use MadMimi\Options\PaginationTrait;
 
 /**
  * Class All
  * @package MadMimi\Options\Members
  */
-class All extends OptionsAbstract
+class All extends MemberOptionsAbstract
 {
     use PaginationTrait;
 
@@ -84,16 +83,4 @@ class All extends OptionsAbstract
         return self::REQUEST_TYPE_GET;
     }
 
-    /**
-     * @param $key string the key
-     * @param $bool boolean true or false
-     * @return $this
-     */
-    protected function translateBooleanToInteger($key, $bool)
-    {
-        if (!is_bool($bool)) throw new \DomainException('Parameter of ' . debug_backtrace()[1]['function'] . ' must be a boolean');
-
-        $this->$key = intval($bool);
-        return $this;
-    }
 }
