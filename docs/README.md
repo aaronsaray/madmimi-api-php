@@ -42,6 +42,9 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Suppressed Since](members/suppressed-since.md)
  - [Suppress](members/all.md)
  - [Is Suppressed](members/is-suppressed.md)
+ - [Events Since](members/events-since.md)
+ - [Create](members/create.md)
+ - [Update Email](members/update-email.md)
  
 ## Addons
  - [List All](addons/all.md)

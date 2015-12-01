@@ -21,7 +21,7 @@ class UpdateEmailTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('my@email.com', 'email', $options);
     }
 
-    public function testsetNewEmail()
+    public function testSetNewEmail()
     {
         $options = new UpdateEmail();
         $this->assertInstanceOf('MadMimi\Options\Members\UpdateEmail', $options->setNewEmail('new-my@email.com'));

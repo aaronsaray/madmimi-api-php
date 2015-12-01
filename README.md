@@ -79,7 +79,10 @@ The following items are either non-working or haven't yet been verified:
  - [Suppressed Since](docs/members/suppressed-since.md)
  - [Suppress](docs/members/all.md)
  - [Is Suppressed](docs/members/is-suppressed.md)
-
+ - [Events Since](docs/members/events-since.md)
+ - [Create](docs/members/create.md)
+ - [Update Email](docs/members/update-email.md)
+ 
 ### Addons
  - [List All](docs/addons/all.md)
  - [List User's](docs/addons/user.md)
