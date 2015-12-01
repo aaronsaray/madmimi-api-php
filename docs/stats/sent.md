@@ -12,8 +12,11 @@ Please keep in mind - **both promotion ID and mailing ID must be set** for this 
 ### Method Reference
 
 `Mailing::setPromotionId($promotionId)` - Sets the promotion ID that should be retrieved
+
 `Mailing::setMailingId($promotionId)` - Sets the mailing ID that should be retrieved
+
 `Mailing::setPage($pageNumber)` - Sets the page of records to view
+
 `Mailing::setRecordsPerPage($recordsPerPage)` - Sets the amount of records per page
 
 ## Exceptions
