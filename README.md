@@ -78,6 +78,8 @@ The following items are either non-working or haven't yet been verified:
 
 ### Members
  - [List All](docs/members/all.md)
+ - [Get Single](docs/members/single.md)
+ - [Search](docs/members/search.md)
  - [Suppressed Since](docs/members/suppressed-since.md)
  - [Suppress](docs/members/all.md)
  - [Is Suppressed](docs/members/is-suppressed.md)

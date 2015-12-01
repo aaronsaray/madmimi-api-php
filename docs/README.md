@@ -38,6 +38,8 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Delete](promotions/delete.md)
  
 ## Members
+ - [Get Single](members/single.md)
+ - [Search](members/search.md)
  - [List All](members/all.md)
  - [Suppressed Since](members/suppressed-since.md)
  - [Suppress](members/all.md)
