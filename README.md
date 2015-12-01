@@ -75,6 +75,9 @@ The following items are either non-working or haven't yet been verified:
 
 ### Members
  - [List All](docs/members/all.md)
+ - [Suppressed Since](docs/members/suppressed-since.md)
+ - [Suppress](docs/members/all.md)
+ - [Is Suppressed](docs/members/is-suppressed.md)
 
 ### Addons
  - [List All](docs/addons/all.md)
