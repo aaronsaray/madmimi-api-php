@@ -70,7 +70,11 @@ The following items are either non-working or haven't yet been verified:
  - [Get Single](docs/webforms/single.md)
    
 ### Lists
+ - [List All](docs/lists/all.md)
  - [Add List](docs/lists/add.md)
+ - [Rename List](docs/lists/rename.md)
+ - [Delete List](docs/lists/delete.md)
+ - [Clear List](docs/lists/clear.md)
    
 ### Promotions
  - [List All](docs/promotions/all.md)

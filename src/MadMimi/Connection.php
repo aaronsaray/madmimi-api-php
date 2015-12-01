@@ -104,13 +104,13 @@ class Connection
         curl_setopt($curlHandle, CURLOPT_URL, $url);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
 
-        if ($requestType == OptionsAbstract::REQUEST_TYPE_POST || $requestType == OptionsAbstract::REQUEST_TYPE_PUT) {
+        if ($requestType != OptionsAbstract::REQUEST_TYPE_GET) {
             curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $query);
             if ($requestType == OptionsAbstract::REQUEST_TYPE_POST) {
                 curl_setopt($curlHandle, CURLOPT_POST, true);
             }
             else {
-                curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, "PUT");
+                curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, strtoupper($requestType));
             }
         }
 

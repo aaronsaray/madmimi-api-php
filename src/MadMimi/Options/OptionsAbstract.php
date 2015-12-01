@@ -31,6 +31,11 @@ abstract class OptionsAbstract
     const REQUEST_TYPE_PUT = 'put';
 
     /**
+     * @var string this is the delete method
+     */
+    const REQUEST_TYPE_DELETE = 'delete';
+
+    /**
      * OptionsAbstract constructor.
      *
      * You can pass in the properties here directly - if you know what they are exactly.  It might be easier though

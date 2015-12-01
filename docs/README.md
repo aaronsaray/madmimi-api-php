@@ -31,7 +31,11 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Get Single](webforms/single.md)
 
 ## Lists
+ - [List All](lists/all.md)
  - [Add List](lists/add.md)
+ - [Rename List](lists/rename.md)
+ - [Delete List](lists/delete.md)
+ - [Clear List](lists/clear.md)
 
 ## Promotions
  - [List All](promotions/all.md)
