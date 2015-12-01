@@ -1,17 +1,15 @@
-# Create Member
+# Add a list
 
-Allows a new audience member to be created.
+This creates a new mailing list
 
-## Create Member Options
+## Add List Options
 
-[MadMimi's List All Members Documentation](https://madmimi.com/developer/lists) should give you an idea
+[MadMimi's Add New Audience List Documentation](https://madmimi.com/developer/lists/add-new-audience-list) should give you an idea
 of what you need to send to the API.  This options object makes some of the methods easier.
 
 ### Method Reference
 
-`Create::setEmail($email)` - Sets the email for the user
-
-`Create::setName($name)` - Sets the name for the user
+`Add::setName($name)` - Sets the name of the list
 
 ## Exceptions
 

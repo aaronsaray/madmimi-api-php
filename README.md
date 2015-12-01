@@ -69,6 +69,9 @@ The following items are either non-working or haven't yet been verified:
  - [List All](docs/webforms/all.md)
  - [Get Single](docs/webforms/single.md)
    
+### Lists
+ - [Add List](docs/lists/add.md)
+   
 ### Promotions
  - [List All](docs/promotions/all.md)
  - [Get Single](docs/promotions/single.md)

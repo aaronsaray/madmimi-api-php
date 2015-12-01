@@ -30,6 +30,9 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [List All](webforms/all.md)
  - [Get Single](webforms/single.md)
 
+## Lists
+ - [Add List](lists/add.md)
+
 ## Promotions
  - [List All](promotions/all.md)
  - [Get Single](promotions/single.md)
