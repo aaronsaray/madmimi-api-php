@@ -133,6 +133,7 @@ class Connection
      * @param $curlHandle resource Curl Handle
      * @param $result string the result of this request
      * @throws AuthenticationException
+     * @throws InvalidOptionException
      * @throws MissingPlaceholdersException
      * @throws NoPromotionOrListException
      * @throws TransferErrorException
@@ -157,6 +158,15 @@ class Connection
          * HTTP Error Codes
          */
         switch (curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
+            case 200:
+                if (stripos($result, '{') === 0) {
+                    $json = json_decode($result);
+                    if ($json->success == false) {
+                        throw new TransferErrorException($json->error, $json->code);
+                    }
+                }
+                break;
+
             case 404:
                 throw new TransferErrorException("Either the endpoint or method resulted in a 404-not found: {$result}", 404);
                 break;
