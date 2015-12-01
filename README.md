@@ -37,6 +37,7 @@ The following items are either non-working or haven't yet been verified:
 - Google Analytics Add/Delete - giving 404 each call
 - Toggle User's Analytics - Using a URL different than in the API documentation - may not be stable
 - Child account and other addons don't appear to be working as I interpret the documentation to indicate
+- 401 on calls to update a user email
 
 ### Core
  - [The Connection Object](docs/connection.md)
