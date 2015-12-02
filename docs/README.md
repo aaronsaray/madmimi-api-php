@@ -55,7 +55,8 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Create](members/create.md)
  - [Update Email](members/update-email.md)
  - [Update](members/update.md) 
- 
+ - [Get All List Subscriptions](members/lists.md)
+
 ## Addons
  - [List All](addons/all.md)
  - [List User's](addons/user.md)

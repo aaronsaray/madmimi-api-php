@@ -132,7 +132,7 @@ trait PromotionBaseTrait
      */
     public function setTrackLinks($bool = true)
     {
-        return $this->setTranslatedBooleanValue('track_links', $bool);
+        return $this->setTranslatedBooleanToString('track_links', $bool);
     }
 
     /**
@@ -143,6 +143,6 @@ trait PromotionBaseTrait
      */
     public function setHidden($bool = true)
     {
-        return $this->setTranslatedBooleanValue('hidden', $bool);
+        return $this->setTranslatedBooleanToString('hidden', $bool);
     }
 }
