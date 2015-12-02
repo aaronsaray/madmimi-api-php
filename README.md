@@ -85,6 +85,7 @@ The following items are either non-working or haven't yet been verified:
 
 ### Members
  - [List All](docs/members/all.md)
+ - [List All In a List](docs/members/all-by-list.md)
  - [Get Single](docs/members/single.md)
  - [Search](docs/members/search.md)
  - [Suppressed Since](docs/members/suppressed-since.md)

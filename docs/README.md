@@ -48,6 +48,7 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Get Single](members/single.md)
  - [Search](members/search.md)
  - [List All](members/all.md)
+ - [List All In a List](members/all-by-list.md)
  - [Suppressed Since](members/suppressed-since.md)
  - [Suppress](members/all.md)
  - [Is Suppressed](members/is-suppressed.md)
