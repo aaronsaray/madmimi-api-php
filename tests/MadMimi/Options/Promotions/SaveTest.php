@@ -22,6 +22,13 @@ class SaveTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals('my promo name', 'promotion_name', $options);
     }
 
+    public function testSetUrl()
+    {
+        $options = new Save();
+        $this->assertInstanceOf('MadMimi\Options\Promotions\Save', $options->setUrl('a-cool-url'));
+        $this->assertAttributeEquals('a-cool-url', 'url', $options);
+    }
+
     public function testSetHTML()
     {
         $options = new Save();

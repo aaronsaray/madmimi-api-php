@@ -21,6 +21,13 @@ class SuppressedSinceTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeEquals(1420128672, 'timestamp', $options);
     }
 
+    public function testSetShowSuppressionReason()
+    {
+        $options = new SuppressedSince();
+        $this->assertInstanceOf('MadMimi\Options\Members\SuppressedSince', $options->setShowSuppressionReason(true));
+        $this->assertAttributeEquals(true, 'show_suppression_reason', $options);
+    }
+
     public function testEndPoint()
     {
         $options = new SuppressedSince();
