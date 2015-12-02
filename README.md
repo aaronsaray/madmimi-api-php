@@ -95,6 +95,9 @@ The following items are either non-working or haven't yet been verified:
  - [Update Email](docs/members/update-email.md)
  - [Update](docs/members/update.md) 
  - [Get All List Subscriptions](docs/members/lists.md)
+ - [Import CSV Members](docs/members/import.md)
+ - [Import Status](docs/members/import-status.md)
+ 
  
 ### Addons
  - [List All](docs/addons/all.md)
