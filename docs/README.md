@@ -58,6 +58,8 @@ If you haven't already done so, please read the [main Readme](../README.md) firs
  - [Get All List Subscriptions](members/lists.md)
  - [Import CSV Members](members/import.md)
  - [Import Status](members/import-status.md)
+ - [Add Member To List](members/add-to-list.md)
+ - [Remove Member From List](members/remove-from-list.md)
 
 ## Addons
  - [List All](addons/all.md)

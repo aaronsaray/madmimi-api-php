@@ -97,7 +97,8 @@ The following items are either non-working or haven't yet been verified:
  - [Get All List Subscriptions](docs/members/lists.md)
  - [Import CSV Members](docs/members/import.md)
  - [Import Status](docs/members/import-status.md)
- 
+ - [Add Member To List](docs/members/add-to-list.md)
+ - [Remove Member From List](docs/members/remove-from-list.md)
  
 ### Addons
  - [List All](docs/addons/all.md)
