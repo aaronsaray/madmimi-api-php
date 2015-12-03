@@ -116,6 +116,7 @@ class Connection
 
         $result = curl_exec($curlHandle);
         $this->debug("Curl info after call: " . print_r(curl_getinfo($curlHandle), true));
+        $this->debug("Body content: " . print_r($result, true));
 
         $this->handleSendError($curlHandle, $result);
 
