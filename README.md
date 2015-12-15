@@ -35,11 +35,9 @@ $transactionId = $connection->request($options);
 
 ## Documentation
 
-The following items are either non-working or haven't yet been verified:
-- Google Analytics Add/Delete - giving 404 each call
-- Toggle User's Analytics - Using a URL different than in the API documentation - may not be stable
-- Child account and other addons don't appear to be working as I interpret the documentation to indicate
-- 401 on calls to update a user email
+**Known Issues**
+There are a number of known issues with MadMimi's API that I've been in contact with them about.  As yet, there is 
+no solution for these that I know of.  To see the issues, please view this label: [MadMimi API Bugs](https://github.com/aaronsaray/madmimi-api-php/labels/MadMimi%20API%20Bug)
 
 ### Core
  - [The Connection Object](docs/connection.md)

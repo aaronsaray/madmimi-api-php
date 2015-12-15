@@ -1,6 +1,8 @@
 # Update Member Email
 
-Updates a member's email (this is necessary and separate from the update option because the key is the email for each user)
+Updates a member's email (this is necessary and separate from the update option because the key is the email for each user).
+
+*Please note* You must contact MadMimi to enable the advanced API on your account.
 
 ## Update Member Email Options
 
