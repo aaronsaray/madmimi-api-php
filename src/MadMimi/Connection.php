@@ -47,6 +47,11 @@ class Connection
     protected $apiKey;
 
     /**
+     * @var CurlRequest
+     */
+    protected $curlRequest;
+
+    /**
      * @var bool whether debugging logging should be on or not
      */
     protected $debugMode = false;
@@ -60,12 +65,14 @@ class Connection
      * Connection constructor - sets up the potential for hte connection
      * @param $username string The email that is used to connect
      * @param $apiKey string the API key that is used
+     * @param $curlRequest CurlRequest a curl request
      * @param $debugMode bool whether to turn on debugging
      */
-    public function __construct($username, $apiKey, $debugMode = false)
+    public function __construct($username, $apiKey, CurlRequest $curlRequest, $debugMode = false)
     {
         $this->username = $username;
         $this->apiKey = $apiKey;
+        $this->curlRequest = $curlRequest;
 
         $this->log = new Logger(__CLASS__);
         if ($this->debugMode = $debugMode) {
@@ -100,27 +107,26 @@ class Connection
         }
         $this->debug("Url: {$url}");
 
-        $curlHandle = curl_init();
-        curl_setopt($curlHandle, CURLOPT_URL, $url);
-        curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
+        $this->curlRequest->setOption(CURLOPT_URL, $url);
+        $this->curlRequest->setOption(CURLOPT_RETURNTRANSFER, true);
 
         if ($requestType != OptionsAbstract::REQUEST_TYPE_GET) {
-            curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $query);
+            $this->curlRequest->setOption(CURLOPT_POSTFIELDS, $query);
             if ($requestType == OptionsAbstract::REQUEST_TYPE_POST) {
-                curl_setopt($curlHandle, CURLOPT_POST, true);
+                $this->curlRequest->setOption(CURLOPT_POST, true);
             }
             else {
-                curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, strtoupper($requestType));
+                $this->curlRequest->setOption(CURLOPT_CUSTOMREQUEST, strtoupper($requestType));
             }
         }
 
-        $result = curl_exec($curlHandle);
-        $this->debug("Curl info after call: " . print_r(curl_getinfo($curlHandle), true));
+        $result = $this->curlRequest->execute();
+        $this->debug("Curl info after call: " . print_r($this->curlRequest->getInfo(), true));
         $this->debug("Body content: " . print_r($result, true));
 
-        $this->handleSendError($curlHandle, $result);
+        $this->handleSendError($result);
 
-        if (($httpCode = curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) !== 200) {
+        if (($httpCode = $this->curlRequest->getInfo(CURLINFO_HTTP_CODE)) !== 200) {
             throw new TransferErrorException("HTTP Error Code of {$httpCode} was generated and not caught: " . $result); // really shouldn't ever happen if I do my job right
         }
 
@@ -131,7 +137,6 @@ class Connection
     /**
      * This handles all the errors that this particular connection send could generate
      *
-     * @param $curlHandle resource Curl Handle
      * @param $result string the result of this request
      * @throws AuthenticationException
      * @throws InvalidOptionException
@@ -139,13 +144,13 @@ class Connection
      * @throws NoPromotionOrListException
      * @throws TransferErrorException
      */
-    protected function handleSendError($curlHandle, $result)
+    protected function handleSendError($result)
     {
         /**
          * Curl error
          */
         if ($result === false) {
-            throw new TransferErrorException(curl_error($curlHandle), curl_errno($curlHandle));
+            throw new TransferErrorException($this->curlRequest->getError(), $this->curlRequest->getErrorNumber());
         }
 
         /**
@@ -158,7 +163,7 @@ class Connection
         /**
          * HTTP Error Codes
          */
-        switch (curl_getinfo($curlHandle, CURLINFO_HTTP_CODE)) {
+        switch ($this->curlRequest->getInfo(CURLINFO_HTTP_CODE)) {
             case 200:
                 if (stripos($result, '{') === 0) {
                     $json = json_decode($result);
@@ -180,7 +185,7 @@ class Connection
 
             case 500:
                 // @todo figure out if this actually works
-                if (curl_getinfo($curlHandle, CURLINFO_CONTENT_TYPE) == 'text/html; charset=utf-8') {
+                if ($this->curlRequest->getInfo(CURLINFO_CONTENT_TYPE) == 'text/html; charset=utf-8') {
                     throw new TransferErrorException("An error 500 was generated and an HTML page was returned.", 500);
                 }
                 else {

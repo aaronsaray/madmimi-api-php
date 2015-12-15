@@ -21,9 +21,10 @@ the answer to life, the universe and everything.  This email goes to Slartibartf
 <?php
 
 use MadMimi\Connection;
+use MadMimi\CurlRequest;
 use MadMimi\Options\Mail\Transactional;
 
-$connection = new Connection('your@email.com', 'your-api-key');
+$connection = new Connection('your@email.com', 'your-api-key', new CurlRequest());
 
 $options = new Transactional();
 $options->setPromotionName('Meaning of Life')

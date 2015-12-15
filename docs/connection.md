@@ -9,8 +9,9 @@ be reused.  The connection object also allows you to specify debug mode.
 ```php
 <?php
 use MadMimi\Connection;
+use MadMimi\CurlRequest;
 
-$connection = new Connection('your@email.com', 'your-api-key');
+$connection = new Connection('your@email.com', 'your-api-key', new CurlRequest());
 ```
 
 This `$connection` object is now ready to be used with any of its public methods.
@@ -21,7 +22,7 @@ If you want to debug the connection object, simply pass a true value to the thir
 is a helpful constant to make this easier to read.  In the above example, you would alter your creation to look like this:
 
 ```php
-$connection = new Connection('your@email.com', 'your-api-key', Connection::ENABLE_DEBUG);
+$connection = new Connection('your@email.com', 'your-api-key', new CurlRequest(), Connection::ENABLE_DEBUG);
 ```
 
 Currently, the debug then sends debug messages to PHP standard-out.  This will be the console if you're using CLI, or
