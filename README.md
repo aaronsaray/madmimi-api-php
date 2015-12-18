@@ -36,10 +36,6 @@ $transactionId = $connection->request($options);
 
 ## Documentation
 
-**Known Issues**
-There are a number of known issues with MadMimi's API that I've been in contact with them about.  As yet, there is 
-no solution for these that I know of.  To see the issues, please view this label: [MadMimi API Bugs](https://github.com/aaronsaray/madmimi-api-php/labels/MadMimi%20API%20Bug)
-
 ### Core
  - [The Connection Object](docs/connection.md)
  
