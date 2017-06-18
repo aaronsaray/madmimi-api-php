@@ -123,7 +123,7 @@ class Add extends OptionsAbstract
      */
     public function getEndPoint()
     {
-        return '/participants/create';
+        return '/participants';
     }
 
     /**
